@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+/*
+ *
+ * CSS CONTENTS:
+ *
+ * 01. Web Font
+ * 02. Type Selector Reset
+ * 03. Accessibility Navigation
+ * 04. Layout Selector
+ * 05. Components
+ * 06. Entry Content
+ * 07. Comment
+ * 08. Aside(sidebar)
+ * 09. ETC
+ * 10. Option(Color Type & List Type)
+ * 11. Retina Display
+ * 12. Media Screen
+ *
+ */
+
+/* Web Font Load */
+@font-face {
+	font-family: 'Pretendard-Regular';
+	font-style:normal; 
+	font-weight:400; 
+	src:url("../images/Pretendard-Regular.woff2") format('woff2')
+}
+@font-face {
+	font-family: 'Pretendard-Regular';
+	font-style:normal; 
+	font-weight:500; 
+	src:url("../images/Pretendard-Medium.woff2") format('woff2'),
+}
+@font-face {
+	font-family: 'Pretendard-Regular';
+	font-style:normal; 
+	font-weight:700; 
+	src:url("../images/Pretendard-Bold.woff2") format('woff2'),
+}
+@font-face {
+    font-family:"Font Awesome 6 Free"; 
+    font-style:normal; 
+    font-weight:400; 
+    font-display:auto;
+    src:url("./fa-regular-400.ttf") format('truetype'),
+        url("./fa-regular-400.woff2") format('woff2')
+}
+    @font-face {
+    font-family:"Font Awesome 6 Free"; 
+    font-style:normal; 
+    font-weight:500; 
+    font-display:auto;
+    src:url("./fa-brands-400.ttf") format('truetype'),
+        url("./fa-brands-400.woff2") format('woff2')
+}
+    @font-face {
+    font-family:"Font Awesome 6 Free"; 
+    font-style:normal; 
+    font-weight:900; 
+    font-display:auto;
+    src:url("./fa-solid-900.ttf") format('truetype'),
+        url("./fa-solid-900.woff2") format('woff2')
+}
+@import url('./all.min.css');
+@import url('./all.min.js');
+
+/* Type Selector Reset */
+* {
+    box-sizing:border-box;
+}
+body {
+    -webkit-text-size-adjust: 100%;
+    font-weight: 400;
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-size: 1em;
+    line-height: 1.25;
+    color: #555;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, figure {
+    margin: 0;
+    padding: 0;
+}
+
+header, footer, section, article, aside, nav, hgroup, details, menu, figure, figcaption {
+    display: block;
+}
+
+button, input[type=submit], input[type=reset], input[type=button] {
+    overflow: visible;
+    cursor: pointer;
+}
+
+input[type=text], input[type=email], input[type=password], input[type=submit], textarea {
+    -webkit-appearance: none;
+}
+
+input, select, textarea, button {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100%;
+    border-radius: 0;
+}
+
+button {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+ul li {
+    list-style: none;
+}
+
+img, fieldset {
+    border: none;
+    /* vertical-align: top; */
+}
+
+hr {
+    display: none;
+}
+
+a, a:link {
+    text-decoration: none;
+    color: #555;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    color: #222;
+}
+
+a:active {
+    text-decoration: none;
+}
