@@ -671,7 +671,7 @@ content: "";
 #tt-body-page #article-view ul li,
 #tt-body-page #article-view ol li{
     position: relative;
-    padding: 0 0 3px 12px;
+    padding: 0 0 3px 11px;
     line-height: 1.7;
     list-style-type: none !important;
 }
