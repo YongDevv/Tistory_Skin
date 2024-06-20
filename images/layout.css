@@ -671,7 +671,7 @@ content: "";
 #tt-body-page #article-view ul li,
 #tt-body-page #article-view ol li{
     position: relative;
-    padding: 0 0 3px 22px;
+    padding: 0 0 3px 12px;
     line-height: 1.7;
     list-style-type: none !important;
 }
@@ -680,10 +680,13 @@ content: "";
 #tt-body-page #article-view ol li::before{
     display: block;
     content: "";
-    width: 4px;
-    height: 4px;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 3px;
+    height: 3px;
     border-radius: 10px;
-    background: #000;
+    background: #99999d;
 }
 
 #tt-body-tag .post-header {
