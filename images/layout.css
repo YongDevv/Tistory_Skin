@@ -653,6 +653,10 @@ content: "";
     border-bottom: 1px solid #292c39;
 }
 
+#tt-body-page .post-cover h1 {
+    color: #fff;
+}
+
 #tt-body-page .listWrap {
     display:flex;
     flex-wrap:wrap;
@@ -695,6 +699,18 @@ content: "";
     background: #99999d;
 }
 
+#tt-body-page #content .another_category {
+    margin: 20px 0 !important;
+    padding: 20px;
+    border: 1px solid #292c39 !important;
+    border-radius: 4px;
+    background: #1f212d;
+}
+
+#tt-body-page #content .another_category a {
+    text-decoration: none;
+}
+
 #tt-body-page .another_category th a  {
     font-size: 16px;
 }
@@ -703,24 +719,65 @@ content: "";
     display: none;
 }
 
+#tt-body-page .container_postbtn {
+    margin: 80px 0 20px;
+    padding: 30px 0 0 0 !important;
+}
+
 /* 글 상세 태그 커스텀 */
 #tt-body-page .tags {
     gap: 12px;
     margin-top: 0;
+    text-indent: -9999px;
+}
+
+#tt-body-page .tags > * {
+    text-indent: 0;
 }
 
 #tt-body-page .tags h2 {
+    position: relative;
     margin-bottom: 10px;
+    padding-left: 26px;
     width: 100%;
-    font-size: 18px;
+    line-height: 24px;
     color: #fff;
+    font-size: 20px;
 }
 
 #tt-body-page .tags h2:before {
-    margin-right: 6px;
-    font-family: "Font Awesome 6 Free";
+    display: block;
     content: '\f02b';
-    font-size: 18px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-family: "Font Awesome 6 Free";
+    font-size: 20px;
+}
+
+#tt-body-page .tags a {
+    position: relative;
+    padding: 6px 16px 6px 36px;
+    width: initial;
+    height: initial;
+    font-size: 14px;
+    line-height: 22px;
+    border-radius: 4px;
+}
+
+#tt-body-page .tags a:hover {
+    color: #fff;
+}
+
+#tt-body-page .tags a:before {
+    display: block;
+    content: '\f02b';
+    position: absolute;
+    top: 7px;
+    left: 17px;
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    font-weight: 700;
 }
 
 /* 태그 화면 커스텀 */

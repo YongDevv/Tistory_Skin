@@ -409,6 +409,18 @@
 			$postIcon += '<i class="fa-solid fa-angle-right" style="color: #99999d; font-size: 14px; padding: 0 10px;"></i>';
 			$postCate.text('');
 			$postCate.prepend($postSplit[0] + $postIcon + $postSplit[1]);
+		
+		// 상세화면 카테고리의 다른글 카테고리 사이 화살표
+		var	$anotherCategory = $(".another_category > h4"),
+			$anotherCategoryPoint = $(".another_category > h4 > a:first-child");
+
+			$anotherIcon = '';
+			$anotherIcon += '<i class="fa-solid fa-angle-right" style="padding: 0 8px;"></i>';
+			
+			if($anotherCategory.text().includes('>')){
+				$anotherCategoryPoint.after($anotherIcon);
+				$anotherCategory.text().replace('>', '');
+			}
 
 		if ( !$postCover.length ){
 			$("body").addClass("post-cover-hide")
