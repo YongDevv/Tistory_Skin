@@ -421,6 +421,10 @@
 				$anotherCategoryPoint.after($anotherIcon);
 				$anotherCategory.text().replace('>', '');
 			}
+		
+		// 태그 사이의 쉼표 텍스트 제거
+		const $tagHtml = $('.tags').find('> *').clone();
+		$('.tags').html($tagHtml);
 
 		if ( !$postCover.length ){
 			$("body").addClass("post-cover-hide")

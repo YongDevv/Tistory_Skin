@@ -728,11 +728,6 @@ content: "";
 #tt-body-page .tags {
     gap: 12px;
     margin-top: 0;
-    text-indent: -9999px;
-}
-
-#tt-body-page .tags > * {
-    text-indent: 0;
 }
 
 #tt-body-page .tags h2 {
