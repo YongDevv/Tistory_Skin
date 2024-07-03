@@ -927,6 +927,10 @@ body:not(#tt-body-index) .quickWrap {
   -ms-transform: translateY(-5px);
 }
 
+.listWrap .post-item:hover > a .title {
+  color: #fff;
+}
+
 .listWrap .post-item > a .itemTop {
   display:flex;
   justify-content:space-between;
@@ -964,14 +968,15 @@ body:not(#tt-body-index) .quickWrap {
 }
 
 .listWrap .post-item > a .itemTop .itemTag {
-  padding:7px 10px;
+  padding: 7px 10px;
+  line-height: 18px;
+  color: #9b9fa9;
+  font-size: 15px;
+  font-weight: 500;
   letter-spacing: 0.01em;
-  font-size:14px;
-  line-height:18px;
-  color:#656b79;
-  border-radius:5px;
-  border:1px solid #20242e;
-  background:#21252f;
+  border-radius: 5px;
+  border: 1px solid #20242e;
+  background: #21252f;
 }
 
 .listWrap .post-item .postItemHover {
@@ -1028,7 +1033,7 @@ body:not(#tt-body-index) .quickWrap {
 }
 
 .listWrap .post-item > a .meta {
-  font-size:13px;
+  font-size:15px;
   color:#777b87;
 }
 
@@ -3095,7 +3100,7 @@ body:not(#tt-body-index) .quickWrap {
   margin: 0;
   padding: 20px 20px 50px;
   word-wrap: break-word;
-  color: #99999d;
+  color: #9c9ca5;
   min-height: 370px;
   font-family: 'Pretendard-Regular', sans-serif;
   -webkit-font-smoothing: antialiased;

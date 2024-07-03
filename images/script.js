@@ -423,8 +423,12 @@
 			}
 		
 		// 태그 사이의 쉼표 텍스트 제거
-		const $tagHtml = $('.tags').find('> *').clone();
+		var $tagHtml = $('.tags').find('> *').clone();
 		$('.tags').html($tagHtml);
+
+		// 태그 HTML 구조 변경
+		$('.tags > a').wrapAll('div');
+		$('.tags > div').removeAttr('id');
 
 		if ( !$postCover.length ){
 			$("body").addClass("post-cover-hide")
