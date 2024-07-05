@@ -419,7 +419,8 @@
 			
 			if($anotherCategory.text().includes('>')){
 				$anotherCategoryPoint.after($anotherIcon);
-				$anotherCategory.text().replace('>', '');
+				let $anotherClone = $anotherCategory.find('> *').clone();
+				$anotherCategory.html($anotherClone);
 			}
 		
 		// 태그 사이의 쉼표 텍스트 제거

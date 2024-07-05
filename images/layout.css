@@ -720,8 +720,9 @@ content: "";
 }
 
 #tt-body-page .container_postbtn {
-    margin: 80px 0 20px;
+    margin: 40px 0 20px;
     padding: 30px 0 0 0 !important;
+    border-top: 1px solid #333;
 }
 
 /* 글 상세 태그 커스텀 */
@@ -847,15 +848,22 @@ content: "";
 }
 
 #tt-body-page .related-articles ul li > a .title {
-    padding: 14px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin-bottom: 20px;
+    padding: 20px 20px 0 20px;
     width: 100%;
+    white-space: initial;
     max-width: initial;
+    min-height: 68px;
+    line-height: 1.5;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #tt-body-page .related-articles ul li > a .date {
-    padding: 0 14px 14px 14px;
+    padding: 0 20px 20px 20px;
     line-height: 19px;
     color: #9b9fa9;
     font-size: 16px;
@@ -863,6 +871,58 @@ content: "";
 
 #tt-body-page .related-articles ul li > a:hover figure img {
     scale: 1.1;
+}
+
+/* 글 상세 자기소개 */
+#tt-body-page .comments {
+    width: 100%;
+}
+
+#tt-body-page .comments .tt_box_namecard {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    margin-bottom: 40px;
+    padding: 40px 20px;
+    border-top: 1px solid #292c39;
+    border-bottom: 1px solid #292c39;
+    border-radius: 6px;
+    background: initial;
+} 
+
+#tt-body-page .comments .tt_box_namecard .tt_cont {
+    padding: initial;
+}
+
+#tt-body-page .comments .tt_box_namecard .tt_tit_cont {
+    font-weight: 400;
+    font-size: 20px;
+    color: #fff;
+}
+
+#tt-body-page .comments .tt_box_namecard .tt_desc {
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    color: #9c9ca5;
+}
+
+#tt-body-page .comments .tt_box_namecard .tt_wrap_thumb {
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50px;
+}
+
+/* 글 상세 댓글 */
+#tt-body-page .tt-box-textarea .tt-inner-g {
+    min-height: 140px;
+    max-height: 140px;
+    padding: 20px;
+    border: 1px solid #282c37;
+    border-radius: 6px;
 }
 
 /* 태그 화면 커스텀 */
