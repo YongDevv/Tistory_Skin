@@ -661,7 +661,7 @@ content: "";
     display:flex;
     flex-wrap:wrap;
     column-gap:30px;
-    row-gap:60px;
+    row-gap:40px;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 0 60px;
@@ -700,6 +700,7 @@ content: "";
 }
 
 #tt-body-page #content .another_category {
+    display: none;
     margin: 20px 0 !important;
     padding: 20px;
     border: 1px solid #292c39 !important;
@@ -719,10 +720,46 @@ content: "";
     display: none;
 }
 
+/* 글 상세 좋아요, 공유하기 영역 커스텀 */
 #tt-body-page .container_postbtn {
     margin: 40px 0 20px;
     padding: 30px 0 0 0 !important;
     border-top: 1px solid #333;
+}
+#tt-body-page .container_postbtn .postbtn_like {
+    padding: 0;
+    border: initial;
+}
+
+#tt-body-page .container_postbtn .postbtn_like .btn_post {
+    padding: 10px;
+    height: initial;
+    border-radius: 4px;
+    background: #282c37;
+}
+
+#tt-body-page .container_postbtn .postbtn_like .btn_post .uoc-icon {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#tt-body-page .container_postbtn .postbtn_like .btn_post .uoc-icon .ico_postbtn {
+    position: relative;
+    background: initial;
+}
+
+#tt-body-page .container_postbtn .postbtn_like .btn_post .uoc-icon .ico_postbtn::before {
+    display: inline-block;
+    content: '\f004';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    text-indent: 0;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 400;
+    font-size: 20px;
+    
 }
 
 /* 글 상세 태그 커스텀 */
@@ -904,8 +941,8 @@ content: "";
 }
 
 #tt-body-page .comments .tt_box_namecard .tt_desc {
+    line-height: 20px;
     font-size: 15px;
-    letter-spacing: -0.02em;
     color: #9c9ca5;
 }
 
