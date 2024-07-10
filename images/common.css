@@ -24,19 +24,19 @@
 	font-family: 'Pretendard-Regular';
 	font-style:normal; 
 	font-weight:400; 
-	src:url("../images/Pretendard-Regular.woff2") format('woff2')
+	src:url("./Pretendard-Regular.woff2") format('woff2'),
 }
 @font-face {
 	font-family: 'Pretendard-Regular';
 	font-style:normal; 
 	font-weight:500; 
-	src:url("../images/Pretendard-Medium.woff2") format('woff2'),
+    src:url("./Pretendard-Medium.woff2") format('woff2'),
 }
 @font-face {
 	font-family: 'Pretendard-Regular';
 	font-style:normal; 
 	font-weight:700; 
-	src:url("../images/Pretendard-Bold.woff2") format('woff2'),
+    src:url("./Pretendard-Bold.woff2") format('woff2'),
 }
 @font-face {
     font-family:"Font Awesome 6 Free"; 
