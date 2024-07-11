@@ -727,6 +727,8 @@ content: "";
     border-top: 1px solid #333;
 }
 #tt-body-page .container_postbtn .postbtn_like {
+    display: flex;
+    gap: 10px;
     padding: 0;
     border: initial;
 }
@@ -770,6 +772,9 @@ content: "";
 }
 
 #tt-body-page .container_postbtn .btn_post .ico_share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     margin: 0;
     max-width: initial;
@@ -780,7 +785,7 @@ content: "";
 }
 
 #tt-body-page .container_postbtn .btn_post .ico_share::before {
-    position: inline-block;
+    display: inline-block;
     content: "\f1e0";
     font-family: "Font Awesome 6 Free";
     font-weight: 700;
@@ -788,6 +793,10 @@ content: "";
 }
 
 #tt-body-page .container_postbtn .btn_post .ico_statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     max-width: initial;
     margin: 0;
     width: 20px;
@@ -799,6 +808,27 @@ content: "";
 #tt-body-page .container_postbtn .btn_post .ico_statistics::before {
     position: inline-block;
     content: "\e473";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#tt-body-page .container_postbtn .btn_post .ico_etc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    max-width: initial;
+    width: 20px;
+    height: 20px;
+    text-indent: 0;
+    background: initial;
+}
+
+#tt-body-page .container_postbtn .btn_post .ico_etc::before {
+    position: inline-block;
+    content: "\f141";
     font-family: "Font Awesome 6 Free";
     font-weight: 700;
     font-size: 18px;
