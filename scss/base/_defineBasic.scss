@@ -1,0 +1,235 @@
+// z-index
+@mixin z-index($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(z-index, $value1, $value2); }
+  @else { @include r($breakpoint) { z-index: $value1; } }
+}
+
+// Overflow
+@mixin overflow($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(overflow, $value1, $value2); }
+  @else { @include r($breakpoint) { overflow: $value1; } }
+}
+@mixin overflow-x($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(overflow-x, $value1, $value2); }
+  @else { @include r($breakpoint) { overflow-x: $value1; } }
+}
+
+// Position
+@mixin position($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(position, $value1, $value2); }
+  @else { @include r($breakpoint) { position: $value1; } }
+}
+@mixin top($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(top, $value1, $value2); }
+  @else { @include r($breakpoint) { top: $value1; } }
+}
+@mixin bottom($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(bottom, $value1, $value2); }
+  @else { @include r($breakpoint) { bottom: $value1; } }
+}
+@mixin left($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(left, $value1, $value2); }
+  @else { @include r($breakpoint) { left: $value1; } }
+}
+@mixin right($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(right, $value1, $value2); }
+  @else { @include r($breakpoint) { right: $value1; } }
+}
+
+// Display
+@mixin display($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(display, $value1, $value2); }
+  @else { @include r($breakpoint) { display: $value1; } }
+}
+
+// Gap
+@mixin gap($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(gap, $value1, $value2); }
+  @else { @include r($breakpoint) { gap: $value1; } }
+}
+
+// Margin
+@mixin margin($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(margin, $value1, $value2); }
+  @else { @include r($breakpoint) { margin: $value1; } }
+}
+@mixin margin-top($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(margin-top, $value1, $value2); }
+  @else { @include r($breakpoint) { margin-top: $value1; } }
+}
+@mixin margin-bottom($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(margin-bottom, $value1, $value2); }
+  @else { @include r($breakpoint) { margin-bottom: $value1; } }
+}
+@mixin margin-left($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(margin-left, $value1, $value2); }
+  @else { @include r($breakpoint) { margin-left: $value1; } }
+}
+@mixin margin-right($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(margin-right, $value1, $value2); }
+  @else { @include r($breakpoint) { margin-right: $value1; } }
+}
+
+// Padding
+@mixin padding($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(padding, $value1, $value2); }
+  @else { @include r($breakpoint) { padding: $value1; } }
+}
+@mixin padding-top($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(padding-top, $value1, $value2); }
+  @else { @include r($breakpoint) { padding-top: $value1; } }
+}
+@mixin padding-bottom($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(padding-bottom, $value1, $value2); }
+  @else { @include r($breakpoint) { padding-bottom: $value1; } }
+}
+@mixin padding-left($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(padding-left, $value1, $value2); }
+  @else { @include r($breakpoint) { padding-left: $value1; } }
+}
+@mixin padding-right($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(padding-right, $value1, $value2); }
+  @else { @include r($breakpoint) { padding-right: $value1; } }
+}
+
+// Width
+@mixin width($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(width, $value1, $value2); }
+  @else { @include r($breakpoint) { width: $value1; } }
+}
+@mixin min-width($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(min-width, $value1, $value2); }
+  @else { @include r($breakpoint) { min-width: $value1; } }
+}
+@mixin max-width($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(max-width, $value1, $value2); }
+  @else { @include r($breakpoint) { max-width: $value1; } }
+}
+
+// Height
+@mixin height($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(width, $value1, $value2); }
+  @else { @include r($breakpoint) { width: $value1; } }
+}
+@mixin min-height($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(min-height, $value1, $value2); }
+  @else { @include r($breakpoint) { min-height: $value1; } }
+}
+@mixin max-height($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(max-height, $value1, $value2); }
+  @else { @include r($breakpoint) { max-height: $value1; } }
+}
+
+// Aspect-ratio
+@mixin aspect-ratio($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(aspect-ratio, $value1, $value2); }
+  @else { @include r($breakpoint) { aspect-ratio: $value1; } }
+}
+
+// Text
+@mixin font-family($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(font-family, $value1, $value2); }
+  @else { @include r($breakpoint) { font-family: $value1; } }
+}
+@mixin font-size($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(font-size, $value1, $value2); }
+  @else { @include r($breakpoint) { font-size: $value1; } }
+}
+@mixin font-weight($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(font-weight, $value1, $value2); }
+  @else { @include r($breakpoint) { font-weight: $value1; } }
+}
+@mixin text-align($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(text-align, $value1, $value2); }
+  @else { @include r($breakpoint) { text-align: $value1; } }
+}
+@mixin line-height($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(line-height, $value1, $value2); }
+  @else { @include r($breakpoint) { line-height: $value1; } }
+}
+@mixin color($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(color, $value1, $value2); }
+  @else { @include r($breakpoint) { color: $value1; } }
+}
+
+// Border
+@mixin border($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border, $value1, $value2); }
+  @else { @include r($breakpoint) { border: $value1; } }
+}
+@mixin border-top($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-top, $value1, $value2); }
+  @else { @include r($breakpoint) { border-top: $value1; } }
+}
+@mixin border-bottom($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-bottom, $value1, $value2); }
+  @else { @include r($breakpoint) { border-bottom: $value1; } }
+}
+@mixin border-left($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-left, $value1, $value2); }
+  @else { @include r($breakpoint) { border-left: $value1; } }
+}
+@mixin border-right($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-right, $value1, $value2); }
+  @else { @include r($breakpoint) { border-right: $value1; } }
+}
+@mixin border-width($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-width, $value1, $value2); }
+  @else { @include r($breakpoint) { border-width: $value1; } }
+}
+@mixin border-style($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-style, $value1, $value2); }
+  @else { @include r($breakpoint) { border-style: $value1; } }
+}
+@mixin border-color($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-color, $value1, $value2); }
+  @else { @include r($breakpoint) { border-color: $value1; } }
+}
+@mixin border-radius($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(border-radius, $value1, $value2); }
+  @else { @include r($breakpoint) { border-radius: $value1; } }
+}
+
+// Background
+@mixin background($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(background, $value1, $value2); }
+  @else { @include r($breakpoint) { background: $value1; } }
+}
+@mixin background-color($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(background-color, $value1, $value2); }
+  @else { @include r($breakpoint) { background-color: $value1; } }
+}
+@mixin background-size($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(background-size, $value1, $value2); }
+  @else { @include r($breakpoint) { background-size: $value1; } }
+}
+@mixin background-repeat($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(background-repeat, $value1, $value2); }
+  @else { @include r($breakpoint) { background-repeat: $value1; } }
+}
+@mixin background-position($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(background-position, $value1, $value2); }
+  @else { @include r($breakpoint) { background-position: $value1; } }
+}
+
+// Box-shadow
+@mixin box-shadow($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(box-shadow, $value1, $value2); }
+  @else { @include r($breakpoint) { box-shadow: $value1; } }
+}
+
+// Opacity
+@mixin opacity($breakpoint, $value1, $value2:empty) {
+  @if $breakpoint == each { @include each(opacity, $value1, $value2); }
+  @else { @include r($breakpoint) { opacity: $value1; } }
+}
+
+// Transition
+// @mixin transition($breakpoint, $value1, $value2:empty) {
+//   @if $breakpoint == each { @include prefix(transition, each, $value1, $value2); }
+//   @else { @include r($breakpoint) { @include prefix(transition, $breakpoint, $value1);} }
+// }
+// @mixin transform($breakpoint, $value1, $value2:empty) {
+//   @if $breakpoint == each { @include prefix(transform, each, $value1, $value2); }
+//   @else { @include r($breakpoint) { @include prefix(transform, $breakpoint, $value1);} }
+// }

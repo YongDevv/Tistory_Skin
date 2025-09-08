@@ -1,0 +1,40 @@
+//Breakpoints
+$middle: 1024px;
+$narrow: 768px;
+$narrowest: 480px;
+
+//Layout Size
+$min: 360px;
+$max: 900px;
+$header-height: 70px;
+$sidebar-width: 310px;
+$aside-width: 260px;
+
+//Responsive
+@mixin r($size) {
+  @if $size == wide {
+    @media screen and (min-width: calc($middle + 1px)) {
+      @content;
+    }
+  } @else if $size == middle {
+    @media screen and (max-width: $middle) {
+      @content;
+    }
+  } @else if $size == narrow {
+    @media screen and (max-width: $narrow) {
+      @content;
+    }
+  } @else if $size == narrowest {
+    @media screen and (max-width: $narrowest) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $size) {
+      @content;
+    }
+  }
+}
+@mixin each($property, $value1, $value2) {
+  @include r(wide) { #{$property}: $value1; }
+  @include r(middle) { #{$property}: $value2; }
+}

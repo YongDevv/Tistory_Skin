@@ -1,0 +1,138 @@
+@mixin prefix($property, $breakpoint, $value1:empty, $value2:empty) {
+  @if $value1 == empty {
+    -webkit-#{$property}: $breakpoint;
+    -moz-#{$property}: $breakpoint;
+    -ms-#{$property}: $breakpoint;
+    -o-#{$property}: $breakpoint;
+    #{$property}: $breakpoint;
+  }
+  @else if $breakpoint == each {
+    @include r(wide) {
+      -webkit-#{$property}: $value1;
+      -moz-#{$property}: $value1;
+      -ms-#{$property}: $value1;
+      -o-#{$property}: $value1;
+      #{$property}: $value1;
+    }
+    @include r(middle) {
+      -webkit-#{$property}: $value2;
+      -moz-#{$property}: $value2;
+      -ms-#{$property}: $value2;
+      -o-#{$property}: $value2;
+      #{$property}: $value2;
+    }
+  }
+  @else {
+    @include r($breakpoint) {
+      -webkit-#{$property}: $value1;
+      -moz-#{$property}: $value1;
+      -ms-#{$property}: $value1;
+      -o-#{$property}: $value1;
+      #{$property}: $value1;
+    }
+  }
+}
+
+@mixin flex($value1, $value2, $value3, $value4) {
+  display: flex;
+  flex-direction: $value1;
+  flex-wrap: $value2;
+  @if ($value3 == between) {
+    justify-content: space-between;
+  } @else if ($value3 == start) {
+    justify-content: flex-start;
+  } @else if ($value3 == end) {
+    justify-content: flex-end;
+  } @else {
+    justify-content: $value3;
+  }
+
+  @if ($value4 == between) {
+    align-items: space-between;
+  } @else if ($value4 == start) {
+    align-items: flex-start;
+  } @else if ($value4 == end) {
+    align-items: flex-end;
+  } @else {
+    align-items: $value4;
+  }
+}
+
+@mixin transition($value1, $value2, $value3, $value4:null) {
+  transition: $value1 $value2 $value3 $value4;
+  -webkit-transition: $value1 $value2 $value3 $value4;
+  -moz-transition: $value1 $value2 $value3 $value4;
+  -o-transition: $value1 $value2 $value3 $value4;
+  -ms-transition: $value1 $value2 $value3 $value4;
+}
+
+@mixin translate($value1, $value2:null, $value3:null) {
+  @if ($value1 == x) {
+    transform: translateX($value2);
+    -webkit-transform: translateX($value2);
+    -moz-transform: translateX($value2);
+    -o-transform: translateX($value2);
+    -ms-transform: translateX($value2);
+  } @else if ($value1 == y) {
+    transform: translateY($value2);
+    -webkit-transform: translateY($value2);
+    -moz-transform: translateY($value2);
+    -o-transform: translateY($value2);
+    -ms-transform: translateY($value2);
+  } @else if ($value1 == both) {
+    transform: translate($value2, $value3);
+    -webkit-transform: translate($value2, $value3);
+    -moz-transform: translate($value2, $value3);
+    -o-transform: translate($value2, $value3);
+    -ms-transform: translate($value2, $value3);
+  }
+}
+
+@mixin aCenter($type:null) {
+  @if($type == vertical) {
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+  } @else if ($type == horizontal) {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  } @else {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+@mixin size($width, $height:null) {
+  @if $height == null {
+    width: $width;
+    height: $width;
+  } @else {
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin ellipsis($line) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+}
+
+@mixin hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+}
+.hidden { @include hidden; }

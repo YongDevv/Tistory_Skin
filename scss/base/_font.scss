@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Pretendard-Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('images/Pretendard-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  font-style: normal;
+  font-weight: 500;
+  src: url('images/Pretendard-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  font-style: normal;
+  font-weight: 700;
+  src: url('images/Pretendard-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url('images/fa-regular-400.ttf') format('truetype'),
+       url('images/fa-regular-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 500;
+  font-display: auto;
+  src: url('images/fa-brands-400.ttf') format('truetype'),
+       url('images/fa-brands-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url('images/fa-solid-900.ttf') format('truetype'),
+       url('images/fa-solid-900.woff2') format('woff2');
+}
+
+// Font Awesome CSS import (JS는 제거)
+@import 'images/all.min.css';
+
+// Devicon CSS
+@import 'images/devicon.min.css';
