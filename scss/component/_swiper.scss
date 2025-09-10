@@ -1,0 +1,6 @@
+.quickSwiper {
+    overflow: hidden;
+    @include flex(row, wrap, start, center);
+    margin-top: 24px;
+    .swiper-pagination { position: unset; }
+}
