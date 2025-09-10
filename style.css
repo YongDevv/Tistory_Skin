@@ -2055,9 +2055,15 @@ body:not(#tt-body-index) .quickWrap {
 }
 .quickWrap .quickList {
   display: flex;
+  gap: 28px;
+}
+@media screen and (max-width: 1700px) {
+  .quickWrap .quickList {
+    gap: unset;
+  }
 }
 .quickWrap .quickList li {
-  width: 100%;
+  width: calc(25% - 21px);
   border-radius: 8px;
 }
 .quickWrap .quickList li > a {

@@ -766,6 +766,9 @@
         }
       }
     }
+    // 페이지 로드 시와 리사이즈 시 QuickSwiper 초기화
+    document.addEventListener('DOMContentLoaded', initQuickSwiper);
+    window.addEventListener('resize', initQuickSwiper);
   }
   </script>
   <!-- //추천 카테고리 스와이퍼 -->

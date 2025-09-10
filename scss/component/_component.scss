@@ -818,9 +818,10 @@ body:not(#tt-body-index) .quickWrap {
 
   .quickList {
     display: flex;
-
+    gap: 28px;
+    @include gap(1700px, unset);
     li {
-      width: 100%;
+      width: calc(25% - 21px);
       border-radius: 8px;
 
       > a {
