@@ -68,7 +68,7 @@ $(function(){
 
   // LNB 반응형 관련 기능
   var $aside = $(".sidebar")
-  $(window).onc('resize', function(){
+  $(window).on('resize', function(){
     if($(window).width() <= 1700) {
       $aside.removeClass('toggleMode')
       $aside.addClass('toggleMode')
