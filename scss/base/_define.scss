@@ -136,3 +136,62 @@
   overflow: hidden;
 }
 .hidden { @include hidden; }
+
+@mixin icon($fileName, $width:null, $height:null, $format:svg) {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background-size: $width, $height;
+    background-repeat: no-repeat;
+    background-image: url('./images/icon/' + $fileName + '.' + $format);
+  }
+}
+
+@mixin iconMask($fileName, $color, $width:null, $height:null, $format:svg) {
+  position: relative;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: $width;
+    height:$height;
+    -webkit-mask-image: url('./images/icon/' + $fileName + '.' + $format);
+    mask-image: url('./images/icon/' + $fileName + '.' + $format);
+    background-color: $color;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+  }
+}
+
+@mixin focus($type:null) {
+  @include prefix(transition, all .2s);
+  &:focus { outline: 2px solid $focusColor; }
+  @if $type == img {
+    @include prefix(border-radius, 4px);
+    &:focus { outline-offset: -2px; }
+  }
+  @if $type == input {
+    @include prefix(border-radius, 4px);
+    &:focus { outline-offset: -2px; }
+  }
+  @if $type == text {
+    @include prefix(border-radius, 4px);
+    &:focus { outline-offset: 4px; }
+  }
+  @if $type == btn {
+    @include prefix(border-radius, 4px);
+    &:focus { outline-offset: -2px; }
+    &:hover { background-color: $color-sub; }
+    &:active { background-color: $color-sub; }
+  }
+}
