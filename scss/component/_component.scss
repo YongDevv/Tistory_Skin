@@ -815,6 +815,7 @@ body:not(#tt-body-index) .quickWrap {
         height: 180px;
         border-radius: 6px;
         transition: box-shadow 0.4s ease, transform 0.4s ease;
+        @include focus(out);
         &:hover {
           transform: scale(1.02);
           -webkit-transform: scale(1.02);
@@ -899,6 +900,7 @@ body:not(#tt-body-index) .quickWrap {
       border-radius: 0 10px 10px 10px;
       background: #282c37;
       z-index: 1;
+      @include focus(out);
     }
     &:hover {
       > a {
@@ -1043,7 +1045,7 @@ body:not(#tt-body-index) .quickWrap {
       width: 34px;
       height: 47px;
       margin: -24px 0 0 -17px;
-      background: url(./images/ico_package.png) no-repeat 0 -120px;
+      background: url('./images/ico_package.png') no-repeat 0 -120px;
       background-size: 120px auto;
     }
     .excerpt, .title, .meta {
@@ -1163,6 +1165,7 @@ body:not(#tt-body-index) .quickWrap {
     color: #999;
     border-radius: 10px;
     background: #282c37;
+    @include focus(out);
     &:hover {
       text-decoration: none;
     }

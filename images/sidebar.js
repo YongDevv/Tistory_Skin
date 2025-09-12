@@ -68,6 +68,7 @@ $(function(){
 
   // LNB 반응형 관련 기능
   var $aside = $(".sidebar")
+  var $asideDimmed = $aside.find('.dimmed')
   $(window).on('resize', function(){
     if($(window).width() <= 1700) {
       $aside.removeClass('toggleMode')
@@ -83,8 +84,12 @@ $(function(){
     if(!$aside.hasClass('open')) {
       $aside.removeClass('open')
       $aside.addClass('open')
+      $('.dimmed').css('display', 'block');
+      $('body').css('overflow', 'hidden');
     } else {
       $aside.removeClass('open')
+      $('.dimmed').css('display', 'none');
+      $('body').css('overflow', '');
     }
   })
 })

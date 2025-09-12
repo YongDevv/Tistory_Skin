@@ -1,6 +1,17 @@
+.dimmed {
+  content: "";
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include size(100vw, 100vh);
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
 #wrap {
   position: relative;
-  background: #1f212d;
+  background: $bgColor;
 }
 
 html {
@@ -12,7 +23,7 @@ html {
     display: none;
   }
   &::-webkit-scrollbar-track {
-    background: #1f212d;
+    background: $bgColor;
   }
   &::-webkit-scrollbar-thumb {
     border: 1px solid transparent;
@@ -63,10 +74,10 @@ html {
   z-index: 100;
   position: absolute;
   margin-left: $aside-width;
-  @include margin-left(1700px, unset);
+  @include margin-left($lnbHide, unset);
   width: calc(100% - $aside-width);
-  @include width(1700px, 100%);
-  background: #1f212d;
+  @include width($lnbHide, 100%);
+  background: $bgColor;
   &.scroll {
     position: fixed;
     .inner {
@@ -81,7 +92,7 @@ html {
         .left {
           .headerSearch {
             input {
-              background: #1f212d;
+              background: $bgColor;
             }
           }
         }
@@ -118,7 +129,7 @@ html {
             color: $pure;
             border: none;
             background: #282c37;
-            &:focus { outline: 1px solid #313540; }
+            @include focus(out);
             &::placeholder { color: #9b9fa9; }
           }
           button {
@@ -127,11 +138,8 @@ html {
             right: 14px;
             width: 16px;
             height: 16px;
-            transform: translateY(-50%);
-            -webkit-transform: translateY(-50%);
-            -moz-transform: translateY(-50%);
-            -ms-transform: translateY(-50%);
-            -o-transform: translateY(-50%);
+            @include translate(y, -50%);
+            @include focus(out);
             i { display: block; color: #9b9fa9; }
           }
         }
@@ -145,8 +153,10 @@ html {
           color: #fff;
           li {
             a {
+              display: block;
               font-size: 20px;
               color: #9b9fa9;
+              @include focus(out);
               i {
                 width: 40px;
                 height: 40px;
@@ -165,7 +175,7 @@ html {
         }
         .profile {
           position: relative;
-          @include display(1700px, none);
+          @include display($lnbHide, none);
           nav {
             display: none;
             position: absolute;
@@ -182,7 +192,7 @@ html {
                   display: block;
                   margin-top: -1px;
                   padding: 8px 0;
-                  border: 1px solid #1f212d;
+                  border: 1px solid $bgColor;
                   background-color: #282c37;
                   text-align: center;
                   text-decoration: none;
@@ -201,7 +211,7 @@ html {
         }
         .lnbBtn {
           display: none;
-          @include display(1700px, unset);
+          @include display($lnbHide, unset);
         }
         .profile, .lnbBtn {
           button {
@@ -216,6 +226,7 @@ html {
             color: #fff;
             border-radius: 6px;
             background-image: linear-gradient(223deg, rgb(255 39 39) 0%, rgb(151 71 234) 55%, rgb(0 172 255) 100%);
+            @include focus(out);
 
             &:before {
               display: block;
@@ -374,8 +385,7 @@ html {
 #aside {
   position: fixed;
   top: 0;
-  width: $aside-width;
-  height: 100vh;
+  @include size($aside-width, 100vh);
   box-sizing: border-box;
   background: #282c37;
   z-index: 1000;
@@ -387,12 +397,6 @@ html {
       left: 0;
     }
   }
-
-  .close,
-  .profile {
-    display: none;
-  }
-
   .asideProfile {
     display: flex;
     flex-direction: column;
@@ -401,10 +405,11 @@ html {
     padding: 24px 10px;
     .asideLogo {
       display: block;
-      @include display(1700px, none);
+      @include display($lnbHide, none);
       margin-right: 10px;
       width: 200px;
       height: auto;
+      @include focus(out);
       img {
         width: 100%;
         height: auto;
@@ -412,7 +417,7 @@ html {
     }
     .lnbSearch {
       display: none;
-      @include display(1700px, block);
+      @include display($lnbHide, block);
       position: relative;
       input {
         padding: 0 50px 0 14px;
@@ -423,8 +428,8 @@ html {
         font-weight: 400;
         color: $pure;
         border: none;
-        background: #282c37;
-        @include focus(input);
+        background: $bgColor;
+        @include focus(out);
         &::placeholder { color: #9b9fa9; }
       }
       button {
@@ -442,41 +447,184 @@ html {
       }
     }
   }
-
-  // 기본 스킨 코드
-  // .tags {
-  //   margin: 0 0 41px;
-  //   padding: 0;
-  //   font-size: 1em;
-
-  //   h2 {
-  //     margin-bottom: 8px;
-  //     font-size: 0.875em;
-  //   }
-
-  //   a {
-  //     float: none;
-  //     margin: 0 4px 0 0;
-  //     padding: 0;
-  //     border: 0;
-  //     font-size: 0.8125em;
-  //     line-height: 2;
-  //     color: #555;
-
-  //     &:after {
-  //       content: ", ";
-  //     }
-
-  //     &:last-child:after {
-  //       content: none;
-  //     }
-
-  //     &:hover,
-  //     &:focus {
-  //       color: #333;
-  //     }
-  //   }
-  // }
+  .category {
+    position: relative;
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 0;
+      height: 10px;
+      width: 100%;
+      background: $bgColor;
+    }
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: #363840;
+    }
+    .tt_category {
+      .link_tit {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        padding-left: 65px;
+        height: 60px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        color: #9b9fa9;
+        align-items: center;
+        @include focus(out);
+        &:hover {
+          text-decoration: none;
+          color: #fff;
+          background: #21242d;
+          transition: all 0.15s ease-in;
+        }
+        &:after {
+          display: block;
+          content: "";
+          position: absolute;
+          top: -58px;
+          right: 1px;
+          width: 2px;
+          height: 58px;
+          background: #479bff;
+        }
+        &:hover:after {
+          top: 1px;
+          transition: all 0.3s ease-out;
+        }
+        &:before {
+          position: absolute;
+          left: 30px;
+          top: 20px;
+          font-family: "Font Awesome 6 Free";
+          font-weight: 900;
+          font-size: 18px;
+          content: "\f029";
+        }
+        &.active {
+          text-decoration: none;
+          color: #479bff;
+          background: #21242d;
+          &:after {
+            top: 1px;
+          }
+        }
+      }
+      .category_list {
+        display: flex;
+        flex-direction: column;
+        > li {
+          overflow: hidden;
+          position: relative;
+          &:after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: -58px;
+            right: 1px;
+            width: 2px;
+            height: 58px;
+            background: #479bff;
+          }
+          &:hover:after {
+            top: 1px;
+            transition: all 0.3s ease-out;
+          }
+          .link_item {
+            display: flex;
+            gap: 20px;
+            overflow: hidden;
+            position: relative;
+            padding-left: 65px;
+            height: 60px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #9b9fa9;
+            border-bottom: 1px solid #313540;
+            align-items: center;
+            @include focus(in);
+            > i {
+              position: absolute;
+              left: 30px;
+            }
+            &:before {
+              position: absolute;
+              left: 30px;
+              font-family: "Font Awesome 6 Free";
+            }
+            &:first-child {
+              border-top: 1px solid #313540;
+            }
+            &:hover {
+              text-decoration: none;
+              color: #fff;
+              background: #21242d;
+              transition: all 0.15s ease-in;
+            }
+          }
+          &.more .link_item {
+            background: url('./images/ico-aside-down-off.svg') no-repeat center right 20px / 20px auto;
+            &:hover {
+              background: #21242d url('./images/ico-aside-down-on.svg') no-repeat center right 20px / 20px auto;
+            }
+          }
+          &.active {
+            .link_item {
+              color: #479bff;
+              border-bottom: 1px solid #242833;
+              background: #21242d;
+            }
+            &.more {
+              .link_item {
+                background: #21242d url('./images/ico-aside-up-on.svg') no-repeat center right 20px / 20px auto;
+              }
+              &:hover {
+                .link_item {
+                  background: #21242d url('./images/ico-aside-up-on.svg') no-repeat center right 20px / 20px auto;
+                }
+              }
+            }
+          }
+          .sub_category_list {
+            display: none;
+            padding: 10px 20px 10px 50px;
+            background: #161820;
+            > li {
+              padding: 10px 0;
+              .link_sub_item {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                color: #9b9fa9;
+                text-decoration: none;
+                @include focus(out);
+                &:hover {
+                  color: #fff;
+                  transition: all 0.15s ease-in;
+                }
+              }
+              &.selected {
+                .link_sub_item {
+                  color: #fff;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 #container {
@@ -501,9 +649,9 @@ html {
   overflow: hidden;
   width: 100%;
   padding: 108px 40px 60px 300px;
-  @include padding(1700px, 108px 40px 70px 40px);
+  @include padding($lnbHide, 108px 40px 70px 40px);
   box-sizing: border-box;
-  background: #1f212d;
+  background: $bgColor;
 
   > .inner:after {
     content: "";
@@ -561,10 +709,9 @@ html {
 
 #footer {
   @include flex(row, wrap, center, center);
-
   height: 60px;
   border-top: 1px solid #313540;
-  background: #1f212d;
+  background: $bgColor;
 
   .inner {
     position: relative;
@@ -630,23 +777,19 @@ html {
   .main-slider {
     display: block;
   }
-
   .post-cover {
     &.notice {
       height: auto;
       background-color: transparent;
-
       h1 {
         margin: 0;
         font-size: 1.6875em;
         line-height: 1.5;
         color: #000;
-
         a {
           color: #000;
         }
       }
-
       .meta {
         margin: 0 0 30px;
         color: rgba(0, 0, 0, 0.6);
@@ -658,27 +801,22 @@ html {
 #tt-body-page {
   #container {
     padding-top: 78px;
-
     &.post-cover-hide {
       padding-top: 0;
     }
   }
-
   .post-cover {
     width: 100%;
     height: initial;
     background: initial;
-
     &::before {
       background-color: initial;
     }
-
     .inner {
       align-items: center;
       padding: 50px 0;
       border-bottom: 1px solid #292c39;
     }
-
     h1 {
       color: #fff;
     }
@@ -697,12 +835,10 @@ html {
 
   #article-view {
     padding: 20px 0 0;
-
     h4 {
       margin: 34px 0 14px;
       font-size: 20px;
     }
-
     ul li,
     ol li {
       position: relative;
@@ -710,7 +846,6 @@ html {
       margin: 0 0 2px 0px;
       line-height: 1.6;
       list-style-type: none !important;
-
       &::before {
         display: block;
         content: "";
@@ -731,16 +866,13 @@ html {
     padding: 20px;
     border: 1px solid #292c39 !important;
     border-radius: 4px;
-    background: #1f212d;
-
+    background: $bgColor;
     a {
       text-decoration: none;
     }
-
     th a {
       font-size: 16px;
     }
-
     th span {
       display: none;
     }
@@ -750,24 +882,20 @@ html {
     margin: 40px 0 20px;
     padding: 30px 0 0 0 !important;
     border-top: 1px solid #333;
-
     .postbtn_like {
       display: flex;
       gap: 10px;
       padding: 0;
       border: initial;
-
       .btn_post {
         padding: 10px;
         height: initial;
         border-radius: 4px;
         background: #282c37;
-
         .uoc-icon {
           display: flex;
           align-items: center;
           gap: 6px;
-
           .ico_postbtn {
             display: flex;
             justify-content: center;
@@ -779,7 +907,6 @@ html {
             max-width: initial;
             text-indent: 0;
             background: initial;
-
             &::before {
               display: inline-block;
               content: '\f004';
@@ -792,7 +919,6 @@ html {
         .txt_like {
           font-size: 15px !important;
         }
-
         .ico_share {
           display: flex;
           justify-content: center;
@@ -804,7 +930,6 @@ html {
           height: 20px;
           text-indent: 0;
           background: initial;
-
           &::before {
             display: inline-block;
             content: "\f1e0";
@@ -813,7 +938,6 @@ html {
             font-size: 18px;
           }
         }
-
         .ico_statistics {
           display: flex;
           justify-content: center;
@@ -825,7 +949,6 @@ html {
           height: 20px;
           text-indent: 0;
           background: initial;
-
           &::before {
             content: "\e473";
             font-family: "Font Awesome 6 Free";
@@ -834,7 +957,6 @@ html {
             position: inline-block;
           }
         }
-
         .ico_etc {
           display: flex;
           justify-content: center;
@@ -846,7 +968,6 @@ html {
           height: 20px;
           text-indent: 0;
           background: initial;
-
           &::before {
             content: "\f141";
             font-family: "Font Awesome 6 Free";
@@ -863,7 +984,6 @@ html {
     display: initial;
     margin-top: 0;
     margin-bottom: 0;
-
     h2 {
       position: relative;
       margin-bottom: 20px;
@@ -872,7 +992,6 @@ html {
       line-height: 24px;
       color: #fff;
       font-size: 20px;
-
       &::before {
         display: block;
         content: '\f02b';
@@ -883,13 +1002,11 @@ html {
         font-size: 20px;
       }
     }
-
     > div {
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
       gap: 12px;
-
       a {
         position: relative;
         padding: 6px 16px 6px 36px;
@@ -898,11 +1015,9 @@ html {
         font-size: 14px;
         line-height: 22px;
         border-radius: 4px;
-
         &:hover {
           color: #fff;
         }
-
         &::before {
           display: block;
           content: '\f02b';
@@ -920,7 +1035,6 @@ html {
   .related-articles {
     margin-bottom: 0;
     width: 100%;
-
     h2 {
       position: relative;
       margin-bottom: 20px;
@@ -929,7 +1043,6 @@ html {
       line-height: 24px;
       color: #fff;
       font-size: 20px;
-
       &::before {
         display: block;
         content: '\f518';
@@ -940,19 +1053,16 @@ html {
         font-size: 20px;
       }
     }
-
     ul {
       display: flex;
       gap: 20px;
       width: initial;
       margin-left: initial;
       vertical-align: initial;
-
       li {
         float: initial;
         width: calc(25% - 15px);
         padding-left: initial;
-
         > a {
           display: flex;
           flex-direction: column;
@@ -960,13 +1070,11 @@ html {
           width: 100%;
           border-radius: 6px;
           background: #282c37;
-
           figure {
             overflow: hidden;
             height: 200px;
             margin-bottom: initial;
             padding-bottom: initial;
-
             img {
               width: auto;
               height: 100%;
@@ -974,7 +1082,6 @@ html {
               transition: all 0.5s ease;
             }
           }
-
           .title {
             display: -webkit-box;
             -webkit-line-clamp: 2;
@@ -989,14 +1096,12 @@ html {
             color: #fff;
             font-size: 16px;
           }
-
           .date {
             padding: 0 20px 20px 20px;
             line-height: 19px;
             color: #9b9fa9;
             font-size: 16px;
           }
-
           &:hover figure img {
             scale: 1.1;
           }
@@ -1007,7 +1112,6 @@ html {
 
   .comments {
     width: 100%;
-
     .tt_box_namecard {
       display: flex;
       flex-direction: row-reverse;
@@ -1021,23 +1125,19 @@ html {
       border-bottom: 1px solid #292c39;
       border-radius: 6px;
       background: initial;
-
       .tt_cont {
         padding: initial;
       }
-
       .tt_tit_cont {
         font-weight: 400;
         font-size: 20px;
         color: #fff;
       }
-
       .tt_desc {
         line-height: 20px;
         font-size: 15px;
         color: #9c9ca5;
       }
-
       .tt_wrap_thumb {
         margin: 0;
         width: 80px;
@@ -1097,468 +1197,207 @@ html {
   }
 }
 
-.sidebar {
-  .sidebar-1 {
-    .category {
-      position: relative;
-
-      &:before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: -10px;
-        left: 0;
-        height: 10px;
-        width: 100%;
-        background: #1f212d;
-      }
-      &:after {
-        display: block;
-        content: "";
-        position: absolute;
-        top: -1px;
-        left: 0;
-        height: 1px;
-        width: 100%;
-        background: #363840;
-      }
-
-      .tt_category {
-        .link_tit {
-          display: flex;
-          overflow: hidden;
-          position: relative;
-          padding-left: 65px;
-          height: 60px;
-          text-decoration: none;
-          font-size: 16px;
-          font-weight: 500;
-          color: #9b9fa9;
-          align-items: center;
-
-          &:hover {
-            text-decoration: none;
-            color: #fff;
-            background: #21242d;
-            transition: all 0.15s ease-in;
-          }
-
-          &:after {
-            display: block;
-            content: "";
-            position: absolute;
-            top: -58px;
-            right: 1px;
-            width: 2px;
-            height: 58px;
-            background: #479bff;
-          }
-
-          &:hover:after {
-            top: 1px;
-            transition: all 0.3s ease-out;
-          }
-
-          &:before {
-            position: absolute;
-            left: 30px;
-            top: 20px;
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            font-size: 18px;
-            content: "\f029";
-          }
-
-          &.active {
-            text-decoration: none;
-            color: #479bff;
-            background: #21242d;
-
-            &:after {
-              top: 1px;
-            }
-          }
-        }
-
-        .category_list {
-          display: flex;
-          flex-direction: column;
-
-          > li {
-            overflow: hidden;
-            position: relative;
-
-            &:after {
-              display: block;
-              content: "";
-              position: absolute;
-              top: -58px;
-              right: 1px;
-              width: 2px;
-              height: 58px;
-              background: #479bff;
-            }
-
-            &:hover:after {
-              top: 1px;
-              transition: all 0.3s ease-out;
-            }
-
-            .link_item {
-              display: flex;
-              gap: 20px;
-              overflow: hidden;
-              position: relative;
-              padding-left: 65px;
-              height: 60px;
-              text-decoration: none;
-              font-size: 16px;
-              font-weight: 500;
-              color: #9b9fa9;
-              border-bottom: 1px solid #313540;
-              align-items: center;
-
-              > i {
-                position: absolute;
-                left: 30px;
-              }
-
-              &:before {
-                position: absolute;
-                left: 30px;
-                font-family: "Font Awesome 6 Free";
-              }
-
-              &:first-child {
-                border-top: 1px solid #313540;
-              }
-
-              &:hover {
-                text-decoration: none;
-                color: #fff;
-                background: #21242d;
-                transition: all 0.15s ease-in;
-              }
-            }
-
-            &.more .link_item {
-              background: url('./images/ico-aside-down-off.svg') no-repeat center right 20px / 20px auto;
-
-              &:hover {
-                background: #21242d url('./images/ico-aside-down-on.svg') no-repeat center right 20px / 20px auto;
-              }
-            }
-
-            &.active {
-              .link_item {
-                color: #479bff;
-                border-bottom: 1px solid #242833;
-                background: #21242d;
-              }
-
-              &.more {
-                .link_item {
-                  background: #21242d url('./images/ico-aside-up-on.svg') no-repeat center right 20px / 20px auto;
-                }
-
-                &:hover {
-                  .link_item {
-                    background: #21242d url('./images/ico-aside-up-on.svg') no-repeat center right 20px / 20px auto;
-                  }
-                }
-              }
-            }
-
-            .sub_category_list {
-              display: none;
-              padding: 10px 20px 10px 50px;
-              background: #161820;
-
-              > li {
-                padding: 10px 0;
-
-                .link_sub_item {
-                  display: flex;
-                  align-items: center;
-                  gap: 15px;
-                  color: #9b9fa9;
-                  text-decoration: none;
-
-                  &:hover {
-                    color: #fff;
-                    transition: all 0.15s ease-in;
-                  }
-                }
-
-                &.selected {
-                  .link_sub_item {
-                    color: #fff;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .sidebar-2 {
-    margin-top: 38px;
-    padding-top: 46px;
-    border-top: 1px solid #eee;
-  }
-
-  .notice {
-    margin-bottom: 37px;
-  }
-
-  .recent-comment {
-    margin-bottom: 36px;
-
-    ul li a {
-      display: block;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .post-list {
-    margin-bottom: 46px;
-
-    h2 {
-      margin-bottom: 12px;
-    }
-
-    ul li {
-      overflow: hidden;
-      margin-bottom: 18px;
-      padding: 0;
-
-      img {
-        float: right;
-        width: 58px;
-        height: 58px;
-        margin: 2px 0 0 20px;
-      }
-
-      a {
-        display: block;
-        overflow: hidden;
-        text-decoration: none;
-
-        &:hover .title {
-          text-decoration: underline;
-        }
-      }
-
-      .title {
-        display: block;
-        display: -webkit-box;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-      }
-
-      .date {
-        display: block;
-        margin-top: 6px;
-        font-size: 0.75rem;
-        line-height: 1;
-        color: #777;
-      }
-    }
-  }
-
-  .social-list {
-    margin-bottom: 46px;
-
-    h2 {
-      margin-bottom: 18px;
-    }
-
-    .tab-list {
-      overflow: hidden;
-      width: 100%;
-    }
-
-    ul li {
-      margin-bottom: 15px;
-      padding: 0 0 0 48px;
-
-      a {
-        display: block;
-        text-decoration: none;
-
-        &:hover .text {
-          text-decoration: underline;
-        }
-      }
-
-      .avatar {
-        float: left;
-        overflow: hidden;
-        width: 40px;
-        height: 40px;
-        margin-left: -48px;
-        border-radius: 50%;
-      }
-
-      .title {
-        display: block;
-      }
-
-      .date {
-        display: block;
-        margin-top: 6px;
-        font-size: 0.75rem;
-        color: #777;
-      }
-    }
-  }
-}
-
-#aside {
-  .tags {
-    margin: 0 0 41px;
-    padding: 0;
-    font-size: 1em;
-
-    h2 {
-      margin-bottom: 8px;
-      font-size: 0.875em;
-    }
-
-    a {
-      float: none;
-      margin: 0 4px 0 0;
-      padding: 0;
-      border: 0;
-      font-size: 0.8125em;
-      line-height: 2;
-      color: #555;
-
-      &:after {
-        content: ", ";
-      }
-
-      &:last-child:after {
-        content: none;
-      }
-
-      &:hover,
-      &:focus {
-        color: #333;
-      }
-    }
-  }
-}
-
-.sidebar {
-  .count {
-    margin-bottom: 46px;
-
-    h2 {
-      margin-bottom: 3px;
-    }
-
-    h2:before {
-      content: "";
-      display: block;
-      width: 17px;
-      height: 1px;
-      margin-bottom: 18px;
-      background-color: #555;
-    }
-
-    p {
-      margin-bottom: 6px;
-      font-size: 0.8125em;
-      color: #777;
-    }
-
-    .total {
-      margin-bottom: 12px;
-      font-weight: 700;
-      font-size: 1.875em;
-      color: #555;
-    }
-  }
-
-  // 기존 코드
-  // .social-channel {
-  //   margin-bottom: 48px;
-
-  //   ul {
-  //     overflow: hidden;
-  //     width: 100%;
-  //   }
-
-  //   ul li {
-  //     float: left;
-  //     margin-left: 10px;
-  //     padding: 0;
-
-  //     &:first-child {
-  //       margin-left: 0;
-  //     }
-
-  //     a {
-  //       display: block;
-  //       width: 34px;
-  //       height: 34px;
-  //       border: 1px solid #eee;
-  //       border-radius: 50%;
-  //       text-indent: -999em;
-  //       background: url('./images/ico_package.png') no-repeat 0 -100px;
-
-  //       &.youtube {
-  //         background-position-x: -50px;
-  //       }
-
-  //       &.instagram {
-  //         background-position-x: -100px;
-  //       }
-
-  //       &.twitter {
-  //         background-position-x: -150px;
-  //       }
-
-  //       &:focus,
-  //       &:hover {
-  //         background-color: #757575;
-  //         background-position-y: -150px;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .tab-ui {
-  //   h2 a {
-  //     color: #999;
-
-  //     &.current {
-  //       color: #555;
-  //     }
-
-  //     &::before {
-  //       content: "";
-  //       display: inline-block;
-  //       width: 1px;
-  //       height: 5px;
-  //       margin: 0 10px;
-  //       vertical-align: middle;
-  //       background: url('./images/ico_package.png') no-repeat -100px -50px;
-  //     }
-
-  //     &:first-child::before {
-  //       content: none;
-  //     }
-  //   }
-  // }
-}
+// 기존코드
+// .sidebar {
+
+//   .sidebar-2 {
+//     margin-top: 38px;
+//     padding-top: 46px;
+//     border-top: 1px solid #eee;
+//   }
+//   .notice {
+//     margin-bottom: 37px;
+//   }
+//   .recent-comment {
+//     margin-bottom: 36px;
+//     ul li a {
+//       display: block;
+//       overflow: hidden;
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//     }
+//   }
+//   .post-list {
+//     margin-bottom: 46px;
+//     h2 {
+//       margin-bottom: 12px;
+//     }
+//     ul li {
+//       overflow: hidden;
+//       margin-bottom: 18px;
+//       padding: 0;
+//       img {
+//         float: right;
+//         width: 58px;
+//         height: 58px;
+//         margin: 2px 0 0 20px;
+//       }
+//       a {
+//         display: block;
+//         overflow: hidden;
+//         text-decoration: none;
+//         &:hover .title {
+//           text-decoration: underline;
+//         }
+//       }
+//       .title {
+//         display: block;
+//         display: -webkit-box;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         -webkit-line-clamp: 2;
+//         -webkit-box-orient: vertical;
+//       }
+//       .date {
+//         display: block;
+//         margin-top: 6px;
+//         font-size: 0.75rem;
+//         line-height: 1;
+//         color: #777;
+//       }
+//     }
+//   }
+
+//   .social-list {
+//     margin-bottom: 46px;
+//     h2 {
+//       margin-bottom: 18px;
+//     }
+//     .tab-list {
+//       overflow: hidden;
+//       width: 100%;
+//     }
+//     ul li {
+//       margin-bottom: 15px;
+//       padding: 0 0 0 48px;
+//       a {
+//         display: block;
+//         text-decoration: none;
+//         &:hover .text {
+//           text-decoration: underline;
+//         }
+//       }
+//       .avatar {
+//         float: left;
+//         overflow: hidden;
+//         width: 40px;
+//         height: 40px;
+//         margin-left: -48px;
+//         border-radius: 50%;
+//       }
+//       .title {
+//         display: block;
+//       }
+//       .date {
+//         display: block;
+//         margin-top: 6px;
+//         font-size: 0.75rem;
+//         color: #777;
+//       }
+//     }
+//   }
+// }
+// .sidebar {
+//   .count {
+//     margin-bottom: 46px;
+
+//     h2 {
+//       margin-bottom: 3px;
+//     }
+
+//     h2:before {
+//       content: "";
+//       display: block;
+//       width: 17px;
+//       height: 1px;
+//       margin-bottom: 18px;
+//       background-color: #555;
+//     }
+
+//     p {
+//       margin-bottom: 6px;
+//       font-size: 0.8125em;
+//       color: #777;
+//     }
+
+//     .total {
+//       margin-bottom: 12px;
+//       font-weight: 700;
+//       font-size: 1.875em;
+//       color: #555;
+//     }
+//   }
+//   .social-channel {
+//     margin-bottom: 48px;
+
+//     ul {
+//       overflow: hidden;
+//       width: 100%;
+//     }
+
+//     ul li {
+//       float: left;
+//       margin-left: 10px;
+//       padding: 0;
+
+//       &:first-child {
+//         margin-left: 0;
+//       }
+
+//       a {
+//         display: block;
+//         width: 34px;
+//         height: 34px;
+//         border: 1px solid #eee;
+//         border-radius: 50%;
+//         text-indent: -999em;
+//         background: url('./images/ico_package.png') no-repeat 0 -100px;
+
+//         &.youtube {
+//           background-position-x: -50px;
+//         }
+
+//         &.instagram {
+//           background-position-x: -100px;
+//         }
+
+//         &.twitter {
+//           background-position-x: -150px;
+//         }
+
+//         &:focus,
+//         &:hover {
+//           background-color: #757575;
+//           background-position-y: -150px;
+//         }
+//       }
+//     }
+//   }
+
+//   .tab-ui {
+//     h2 a {
+//       color: #999;
+
+//       &.current {
+//         color: #555;
+//       }
+
+//       &::before {
+//         content: "";
+//         display: inline-block;
+//         width: 1px;
+//         height: 5px;
+//         margin: 0 10px;
+//         vertical-align: middle;
+//         background: url('./images/ico_package.png') no-repeat -100px -50px;
+//       }
+
+//       &:first-child::before {
+//         content: none;
+//       }
+//     }
+//   }
+// }
 
 #tt-body-page #content {
   padding-top: 40px;

@@ -88,6 +88,10 @@
   }
 }
 
+@mixin rotate($value1) {
+  transform: rotate($value1);
+}
+
 @mixin aCenter($type:null) {
   @if($type == vertical) {
     top: 0;
@@ -176,15 +180,11 @@
 @mixin focus($type:null) {
   @include prefix(transition, all .2s);
   &:focus { outline: 2px solid $focusColor; }
-  @if $type == img {
+  @if $type == in {
     @include prefix(border-radius, 4px);
     &:focus { outline-offset: -2px; }
   }
-  @if $type == input {
-    @include prefix(border-radius, 4px);
-    &:focus { outline-offset: -2px; }
-  }
-  @if $type == text {
+  @if $type == out {
     @include prefix(border-radius, 4px);
     &:focus { outline-offset: 4px; }
   }
