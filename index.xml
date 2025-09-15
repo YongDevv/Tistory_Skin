@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
 	<information>
-		<name>Book Club</name>
+		<name>Codesign</name>
 		<version>1.0</version>
 		<description>
-			<![CDATA[ 도서 콘텐츠를 제공하는 출판사 블로그에 추천합니다.
-			상단 프로모션 영역을 활용해 콘텐츠 주목도를 높여보세요. ]]>
+			<![CDATA[ 직접 꾸며보는 블로그입니다. ]]>
 		</description>
 		<license>
 			<![CDATA[ MIT License ]]>

@@ -307,7 +307,7 @@ html::-webkit-scrollbar-thumb {
 #header .inner .headerWrap .right .blogMenu {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   color: #fff;
 }
 #header .inner .headerWrap .right .blogMenu li a {
@@ -457,7 +457,7 @@ html::-webkit-scrollbar-thumb {
 }
 #aside.toggleMode {
   top: 0;
-  left: -260px;
+  right: -260px;
   transition: all ease-out 0.2s;
   -webkit-transition: all ease-out 0.2s;
   -moz-transition: all ease-out 0.2s;
@@ -465,7 +465,7 @@ html::-webkit-scrollbar-thumb {
   -ms-transition: all ease-out 0.2s;
 }
 #aside.toggleMode.open {
-  left: 0;
+  right: 0;
 }
 #aside .asideProfile {
   display: flex;

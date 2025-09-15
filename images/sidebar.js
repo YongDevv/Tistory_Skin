@@ -24,7 +24,7 @@ $(function(){
           // 1depth
           if($linkDep01 == $linkDepName){
             $(this).parent('li').addClass('active');
-            $(this).siblings('.sub_category_list').slideDown(200);
+            $(this).siblings('.sub_category_list').slideDown(100);
           }
           // 2depth
           if($linkDep02 == $linkDepName){
@@ -56,11 +56,11 @@ $(function(){
         e.preventDefault();
         if(subCategory.parent('li').hasClass('active')){
           subCategory.parent('li').removeClass('active');
-          subCategory.slideUp(200);
+          subCategory.slideUp(100);
         }else{
           subCategory.parent('li').removeClass('active');
           subCategory.parent('li').addClass('active');
-          subCategory.slideDown(200);
+          subCategory.slideDown(100);
         }
       })
     }
@@ -68,7 +68,6 @@ $(function(){
 
   // LNB 반응형 관련 기능
   var $aside = $(".sidebar")
-  var $asideDimmed = $aside.find('.dimmed')
   $(window).on('resize', function(){
     if($(window).width() <= 1700) {
       $aside.removeClass('toggleMode')
