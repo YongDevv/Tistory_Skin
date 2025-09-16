@@ -1,0 +1,38 @@
+@mixin menuBtn {
+  button {
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    font-size: 21px;
+    color: #fff;
+    border-radius: 6px;
+    background-image: linear-gradient(223deg, rgb(255 39 39) 0%, rgb(151 71 234) 55%, rgb(0 172 255) 100%);
+    @include focus(out);
+
+    &:before {
+      display: block;
+      content: "";
+      position: absolute;
+      width: 53px;
+      height: 53px;
+      border-radius: 6px;
+      background-image: linear-gradient(223deg, rgb(255 39 39) 0%, rgb(151 71 234) 45%, rgb(0 172 255) 100%);
+      background-size: 200%;
+      opacity: 0;
+      transition: all 1s ease-in;
+      -webkit-transition: all 0.5s ease-in;
+      -ms-transition: all 0.5s ease-in;
+    }
+    &:hover:before {
+      opacity: 1;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+      animation-name: menuAni;
+    }
+    i { z-index: 100; }
+  }
+}

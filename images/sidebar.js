@@ -66,29 +66,41 @@ $(function(){
     }
   })
 
-  // LNB 반응형 관련 기능
-  var $aside = $(".sidebar")
+  /*** LNB 관련 기능 ***/
+  const $aside = $(".sidebar")
+  const $lnbBtn = $(".lnbBtn")
+  const $lnbCloseBtn = $(".lnbCloseBtn")
+
+  /* LNB 반응형 */
   $(window).on('resize', function(){
     if($(window).width() <= 1700) {
-      $aside.removeClass('toggleMode')
-      $aside.addClass('toggleMode')
+      $('body').removeClass('toggleMode')
+      $('body').addClass('toggleMode')
     } else {
-      $aside.removeClass('toggleMode')
+      $('body').removeClass('toggleMode')
     }
   }).trigger('resize')
 
-  // LNB 열기/닫기 기능
-  var $lnbBtn = $(".lnbBtn")
-  $lnbBtn.on('click', function() {
-    if(!$aside.hasClass('open')) {
-      $aside.removeClass('open')
-      $aside.addClass('open')
-      $('.dimmed').css('display', 'block');
-      $('body').css('overflow', 'hidden');
-    } else {
+  /* LNB 열기,닫기 기능 */
+  $lnbBtn.on('click', function(e) {
+    e.stopPropagation(); // 이벤트 버블링 방지
+    $aside.removeClass('open')
+    $aside.addClass('open')
+    $('.dimmed').css('display', 'block');
+    // $('body').css('overflow', 'hidden');
+  })
+
+  $lnbCloseBtn.on('click', function() {
+    $aside.removeClass('open')
+    $('.dimmed').css('display', 'none');
+    // $('body').css('overflow', '');
+  })
+  $(document).on('click', function(e) {
+    if(!$(e.target).closest($aside).length) {
       $aside.removeClass('open')
       $('.dimmed').css('display', 'none');
-      $('body').css('overflow', '');
+      // $('body').css('overflow', '');
     }
   })
+
 })

@@ -7,9 +7,10 @@ $narrowest: 480px;
 //Layout Size
 $min: 360px;
 $max: 900px;
-$header-height: 70px;
-$sidebar-width: 310px;
-$aside-width: 260px;
+$headerHeight: 70px;
+$sidebarWidth: 310px;
+$asideWidth: 260px;
+$footerHeight: 60px;
 
 //Responsive
 @mixin r($size) {

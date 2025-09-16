@@ -54,6 +54,9 @@
         <div class="inner">
           <div class="headerWrap">
             <div class="left">
+              <a href="[##_blog_link_##]" class="headerLogo">
+                <img alt="블로그 로고" src="./images/logo.png">
+              </a>
               <s_search>
                   <div class="headerSearch">
                       <input id="[##_search_name_##]" type="text" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="검색어를 입력하세요." onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
@@ -65,6 +68,7 @@
             </div>
             <div class="right">
               <ul class="blogMenu">
+                <li class="focusBtn"><button type="button"><i class="fa-solid fa-user-shield"></i></button></li>
                 <li><a href="[##_rss_url_##]"><i class="fa-solid fa-moon"></i></a></li>
                 <li><a href="[##_taglog_link_##]"><i class="fa-solid fa-tag"></i></a></li>
                 <li><a href="[##_guestbook_link_##]"><i class="fa-solid fa-pen"></i></a></li>
@@ -226,16 +230,23 @@
             <!-- asideProfile -->
             <div class="asideProfile">
               <a href="[##_blog_link_##]" class="asideLogo">
-                <img alt="블로그 이미지" src="./images/logo.png">
+                <img alt="블로그 로고" src="./images/logo.png">
               </a>
-              <s_search>
-                <div class="lnbSearch">
-                  <input id="[##_search_name_##]" type="text" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="검색어를 입력하세요." onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
-                  <button type="submit" onclick="[##_search_onclick_submit_##]">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                  </button>
+              <div class="lnbTop">
+                <s_search>
+                  <div class="lnbSearch">
+                    <input id="[##_search_name_##]" type="text" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="검색어를 입력하세요." onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+                    <button type="submit" onclick="[##_search_onclick_submit_##]">
+                      <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                  </div>
+                </s_search>
+                <div class="lnbCloseBtn">
+                  <button type="button">
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>  
                 </div>
-              </s_search>
+              </div>
             </div>
             <!-- // asideProfile -->
             <s_sidebar>

@@ -129,15 +129,28 @@
   word-break: break-word;
 }
 
-@mixin hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  margin: -1px;
-  padding: 0;
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  overflow: hidden;
+@mixin hidden($show: true) {
+  @if $show == true {
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+  }
+  @if $show == false {
+    overflow: visible;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+    white-space: normal;
+    border: none;
+  }
 }
 .hidden { @include hidden; }
 
