@@ -21,42 +21,47 @@ body {
   // LNB 반응형 관련
   &.toggleMode {
     #header {
-      @include margin-left($lnbHide, unset);
-      @include width($lnbHide, 100%);
+      margin-left: unset;
+      width: 100%;
       .inner {
-        @include padding($lnbHide, 0 20px);
+        padding: 0 20px;
         .headerWrap {
           .left {
             flex: unset;            
             max-width: unset;
-            .headerSearch { @include display($lnbHide, none); }
-            .headerLogo { @include display($lnbHide, flex); }
+            .headerSearch { display: none }
+            .headerLogo { display: flex } 
           }
           .right {
-            .profile { @include display($lnbHide, none); }
-            .lnbBtn { @include display($lnbHide, unset); }
+            .profile { display: none; }
+            .lnbBtn { display: unset; }
           }
         }
       }
     }
-    #aside {
-      top: 0;
-      right: -$asideWidth - 20px;
-      width: $asideWidth + 20px;
-      @include transition(all, ease-out, 0.2s);
-      &.open {
-        right: 0;
-      }
-      .asideProfile {
-        .asideLogo { @include display($lnbHide, none); }
-        .lnbTop {
-          .lnbSearch { @include display($lnbHide, block); }
-          .lnbCloseBtn { @include display($lnbHide, block); }
+    #container {
+      #aside {
+        top: 0;
+        right: -$asideWidth - 20px;
+        width: $asideWidth + 20px;
+        @include transition(all, ease-out, 0.2s);
+        &.open {
+          right: 0;
+        }
+        .asideProfile {
+          .asideLogo { display: none; }
+          .lnbTop {
+            .lnbSearch { display: block; }
+            .lnbCloseBtn { display: block; }
+          }
         }
       }
+      #content {
+        padding: 108px 20px 70px 20px;
+      }
     }
-    #content {
-      @include padding($lnbHide, 108px 20px 70px 20px);
+    #footer {
+      width: 100%;
     }
   }
 }
@@ -188,7 +193,7 @@ body {
         .headerLogo {
           display: none;
           width: auto;
-          height: 40px;
+          height: 36px;
           @include focus(out);
           img {
             width: 100%;
@@ -203,7 +208,7 @@ body {
           align-items: center;
           gap: 10px;
           color: #fff;
-          li {
+          >li:not(.profile):not(.lnbBtn) {
             >a, >button {
               display: block;
               font-size: 20px;

@@ -865,10 +865,10 @@ body:not(#tt-body-index) .quickWrap {
   transition: all 0.2s;
   border-radius: 4px;
 }
-.quickWrap .quickList li > a:focus {
+.quickWrap .quickList li > a:focus-visible {
   outline: 2px solid #E91E63;
 }
-.quickWrap .quickList li > a:focus {
+.quickWrap .quickList li > a:focus-visible {
   outline-offset: 4px;
 }
 .quickWrap .quickList li > a:hover {
@@ -973,10 +973,10 @@ body:not(#tt-body-index) .quickWrap {
   transition: all 0.2s;
   border-radius: 4px;
 }
-.listWrap .post-item > a:focus {
+.listWrap .post-item > a:focus-visible {
   outline: 2px solid #E91E63;
 }
-.listWrap .post-item > a:focus {
+.listWrap .post-item > a:focus-visible {
   outline-offset: 4px;
 }
 .listWrap .post-item:hover > a {
@@ -1228,10 +1228,10 @@ body:not(#tt-body-index) .quickWrap {
   transition: all 0.2s;
   border-radius: 4px;
 }
-.pagination a:focus {
+.pagination a:focus-visible {
   outline: 2px solid #E91E63;
 }
-.pagination a:focus {
+.pagination a:focus-visible {
   outline-offset: 4px;
 }
 .pagination a:hover {
@@ -3699,46 +3699,30 @@ html::-webkit-scrollbar-thumb {
   background-clip: padding-box;
 }
 
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header {
-    margin-left: unset;
-  }
+body.toggleMode #header {
+  margin-left: unset;
+  width: 100%;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header {
-    width: 100%;
-  }
-}
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header .inner {
-    padding: 0 20px;
-  }
+body.toggleMode #header .inner {
+  padding: 0 20px;
 }
 body.toggleMode #header .inner .headerWrap .left {
   flex: unset;
   max-width: unset;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header .inner .headerWrap .left .headerSearch {
-    display: none;
-  }
+body.toggleMode #header .inner .headerWrap .left .headerSearch {
+  display: none;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header .inner .headerWrap .left .headerLogo {
-    display: flex;
-  }
+body.toggleMode #header .inner .headerWrap .left .headerLogo {
+  display: flex;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header .inner .headerWrap .right .profile {
-    display: none;
-  }
+body.toggleMode #header .inner .headerWrap .right .profile {
+  display: none;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #header .inner .headerWrap .right .lnbBtn {
-    display: unset;
-  }
+body.toggleMode #header .inner .headerWrap .right .lnbBtn {
+  display: unset;
 }
-body.toggleMode #aside {
+body.toggleMode #container #aside {
   top: 0;
   right: -280px;
   width: 280px;
@@ -3748,28 +3732,23 @@ body.toggleMode #aside {
   -o-transition: all ease-out 0.2s;
   -ms-transition: all ease-out 0.2s;
 }
-body.toggleMode #aside.open {
+body.toggleMode #container #aside.open {
   right: 0;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #aside .asideProfile .asideLogo {
-    display: none;
-  }
+body.toggleMode #container #aside .asideProfile .asideLogo {
+  display: none;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #aside .asideProfile .lnbTop .lnbSearch {
-    display: block;
-  }
+body.toggleMode #container #aside .asideProfile .lnbTop .lnbSearch {
+  display: block;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #aside .asideProfile .lnbTop .lnbCloseBtn {
-    display: block;
-  }
+body.toggleMode #container #aside .asideProfile .lnbTop .lnbCloseBtn {
+  display: block;
 }
-@media screen and (max-width: 1700px) {
-  body.toggleMode #content {
-    padding: 108px 20px 70px 20px;
-  }
+body.toggleMode #container #content {
+  padding: 108px 20px 70px 20px;
+}
+body.toggleMode #footer {
+  width: 100%;
 }
 
 .dimmed {
@@ -3878,10 +3857,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#header .inner .headerWrap .left .headerSearch input:focus {
+#header .inner .headerWrap .left .headerSearch input:focus-visible {
   outline: 2px solid #E91E63;
 }
-#header .inner .headerWrap .left .headerSearch input:focus {
+#header .inner .headerWrap .left .headerSearch input:focus-visible {
   outline-offset: 4px;
 }
 #header .inner .headerWrap .left .headerSearch input::-moz-placeholder {
@@ -3904,10 +3883,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#header .inner .headerWrap .left .headerSearch button:focus {
+#header .inner .headerWrap .left .headerSearch button:focus-visible {
   outline: 2px solid #E91E63;
 }
-#header .inner .headerWrap .left .headerSearch button:focus {
+#header .inner .headerWrap .left .headerSearch button:focus-visible {
   outline-offset: 4px;
 }
 #header .inner .headerWrap .left .headerSearch button i {
@@ -3917,14 +3896,14 @@ body.toggleMode #aside.open {
 #header .inner .headerWrap .left .headerLogo {
   display: none;
   width: auto;
-  height: 40px;
+  height: 36px;
   transition: all 0.2s;
   border-radius: 4px;
 }
-#header .inner .headerWrap .left .headerLogo:focus {
+#header .inner .headerWrap .left .headerLogo:focus-visible {
   outline: 2px solid #E91E63;
 }
-#header .inner .headerWrap .left .headerLogo:focus {
+#header .inner .headerWrap .left .headerLogo:focus-visible {
   outline-offset: 4px;
 }
 #header .inner .headerWrap .left .headerLogo img {
@@ -3937,20 +3916,20 @@ body.toggleMode #aside.open {
   gap: 10px;
   color: #fff;
 }
-#header .inner .headerWrap .right .blogMenu li > a, #header .inner .headerWrap .right .blogMenu li > button {
+#header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > a, #header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > button {
   display: block;
   font-size: 20px;
   color: #9b9fa9;
   transition: all 0.2s;
   border-radius: 4px;
 }
-#header .inner .headerWrap .right .blogMenu li > a:focus, #header .inner .headerWrap .right .blogMenu li > button:focus {
+#header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > a:focus-visible, #header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > button:focus-visible {
   outline: 2px solid #E91E63;
 }
-#header .inner .headerWrap .right .blogMenu li > a:focus, #header .inner .headerWrap .right .blogMenu li > button:focus {
+#header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > a:focus-visible, #header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > button:focus-visible {
   outline-offset: 4px;
 }
-#header .inner .headerWrap .right .blogMenu li > a i, #header .inner .headerWrap .right .blogMenu li > button i {
+#header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > a i, #header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > button i {
   width: 40px;
   height: 40px;
   display: flex;
@@ -3958,7 +3937,7 @@ body.toggleMode #aside.open {
   align-items: center;
   transition: all 0.15s ease-in;
 }
-#header .inner .headerWrap .right .blogMenu li > a:hover i, #header .inner .headerWrap .right .blogMenu li > button:hover i {
+#header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > a:hover i, #header .inner .headerWrap .right .blogMenu > li:not(.profile):not(.lnbBtn) > button:hover i {
   color: #fff;
   border-radius: 6px;
   background: #323947;
@@ -4016,10 +3995,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#header .inner .headerWrap .right .profile button:focus, #header .inner .headerWrap .right .lnbBtn button:focus {
+#header .inner .headerWrap .right .profile button:focus-visible, #header .inner .headerWrap .right .lnbBtn button:focus-visible {
   outline: 2px solid #E91E63;
 }
-#header .inner .headerWrap .right .profile button:focus, #header .inner .headerWrap .right .lnbBtn button:focus {
+#header .inner .headerWrap .right .profile button:focus-visible, #header .inner .headerWrap .right .lnbBtn button:focus-visible {
   outline-offset: 4px;
 }
 #header .inner .headerWrap .right .profile button:before, #header .inner .headerWrap .right .lnbBtn button:before {
@@ -4090,10 +4069,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .asideProfile .asideLogo:focus {
+#aside .asideProfile .asideLogo:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .asideProfile .asideLogo:focus {
+#aside .asideProfile .asideLogo:focus-visible {
   outline-offset: 4px;
 }
 #aside .asideProfile .asideLogo img {
@@ -4125,10 +4104,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .asideProfile .lnbTop .lnbSearch input:focus {
+#aside .asideProfile .lnbTop .lnbSearch input:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .asideProfile .lnbTop .lnbSearch input:focus {
+#aside .asideProfile .lnbTop .lnbSearch input:focus-visible {
   outline-offset: 4px;
 }
 #aside .asideProfile .lnbTop .lnbSearch input::-moz-placeholder {
@@ -4171,10 +4150,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .asideProfile .lnbTop .lnbCloseBtn button:focus {
+#aside .asideProfile .lnbTop .lnbCloseBtn button:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .asideProfile .lnbTop .lnbCloseBtn button:focus {
+#aside .asideProfile .lnbTop .lnbCloseBtn button:focus-visible {
   outline-offset: 4px;
 }
 #aside .asideProfile .lnbTop .lnbCloseBtn button:before {
@@ -4237,10 +4216,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .category .tt_category .link_tit:focus {
+#aside .category .tt_category .link_tit:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .category .tt_category .link_tit:focus {
+#aside .category .tt_category .link_tit:focus-visible {
   outline-offset: 4px;
 }
 #aside .category .tt_category .link_tit:hover {
@@ -4319,10 +4298,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .category .tt_category .category_list > li .link_item:focus {
+#aside .category .tt_category .category_list > li .link_item:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .category .tt_category .category_list > li .link_item:focus {
+#aside .category .tt_category .category_list > li .link_item:focus-visible {
   outline-offset: -2px;
 }
 #aside .category .tt_category .category_list > li .link_item > i {
@@ -4372,10 +4351,10 @@ body.toggleMode #aside.open {
   transition: all 0.2s;
   border-radius: 4px;
 }
-#aside .category .tt_category .category_list > li .sub_category_list > li .link_sub_item:focus {
+#aside .category .tt_category .category_list > li .sub_category_list > li .link_sub_item:focus-visible {
   outline: 2px solid #E91E63;
 }
-#aside .category .tt_category .category_list > li .sub_category_list > li .link_sub_item:focus {
+#aside .category .tt_category .category_list > li .sub_category_list > li .link_sub_item:focus-visible {
   outline-offset: 4px;
 }
 #aside .category .tt_category .category_list > li .sub_category_list > li .link_sub_item:hover {

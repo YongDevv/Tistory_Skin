@@ -55,7 +55,7 @@
           <div class="headerWrap">
             <div class="left">
               <a href="[##_blog_link_##]" class="headerLogo">
-                <img alt="블로그 로고" src="./images/logo.png">
+                <img alt="블로그 로고" src="./images/logo.svg">
               </a>
               <s_search>
                   <div class="headerSearch">
@@ -68,31 +68,27 @@
             </div>
             <div class="right">
               <ul class="blogMenu">
-                <li class="focusBtn"><button type="button"><i class="fa-solid fa-user-shield"></i></button></li>
+                <!-- <li class="focusBtn"><button type="button"><i class="fa-solid fa-user-shield"></i></button></li> -->
                 <li><a href="[##_rss_url_##]"><i class="fa-solid fa-moon"></i></a></li>
                 <li><a href="[##_taglog_link_##]"><i class="fa-solid fa-tag"></i></a></li>
                 <li><a href="[##_guestbook_link_##]"><i class="fa-solid fa-pen"></i></a></li>
-                <li>
-                  <div class="profile">
-                    <button type="button">
-                      <i class="fa-solid fa-bars"></i>
-                    </button>
-                    <nav>
-                      <ul>
-                        <li><a href="[##_owner_url_##]">관리</a></li>
-                        <li><a href="[##_owner_url_##]/entry/post ">글쓰기</a></li>
-                        <li class="login"><a href="#">로그인</a></li>
-                        <li class="logout"><a href="#">로그아웃</a></li>
-                      </ul>
-                    </nav>
-                  </div>
+                <li class="profile">
+                  <button type="button">
+                    <i class="fa-solid fa-bars"></i>
+                  </button>
+                  <nav>
+                    <ul>
+                      <li><a href="[##_owner_url_##]">관리</a></li>
+                      <li><a href="[##_owner_url_##]/entry/post ">글쓰기</a></li>
+                      <li class="login"><a href="#">로그인</a></li>
+                      <li class="logout"><a href="#">로그아웃</a></li>
+                    </ul>
+                  </nav>
                 </li>
-                <li>
-                  <div class="lnbBtn">
-                    <button type="button">
-                      <i class="fa-solid fa-bars"></i>
-                    </button>  
-                  </div>
+                <li class="lnbBtn">
+                  <button type="button">
+                    <i class="fa-solid fa-bars"></i>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -230,7 +226,7 @@
             <!-- asideProfile -->
             <div class="asideProfile">
               <a href="[##_blog_link_##]" class="asideLogo">
-                <img alt="블로그 로고" src="./images/logo.png">
+                <img alt="블로그 로고" src="./images/logo.svg">
               </a>
               <div class="lnbTop">
                 <s_search>
@@ -511,32 +507,39 @@
               </div>
             </s_notice_rep>
 
+            <!-- 리스트 그룹 치환자 -->
             <s_list>
-              <div class="post-header">
-                <span>[##_list_conform_##]</span>
-                <em>[##_list_count_##]</em>
-              </div>
-              <s_list_empty>
-                <div class="not-found">
-                  <ul>
-                    <li>입력하신 단어의 철자가 정확한지 확인해 보세요.</li>
-                    <li>검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 보세요.</li>
-                    <li>두 단어 이상의 키워드로 검색 하신 경우, 정확하게 띄어쓰기를 한 후 검색해 보세요.</li>
-                  </ul>
-                  <ul class="tag">
-                    <li>선택하신 태그에 해당하는 글이 없습니다.</li>
-                    <li>다른 태그를 선택하시거나, 검색 기능을 활용해 보세요.</li>
-                  </ul>
-                  <ul class="category">
-                    <li>선택하신 카테고리에 해당하는 글이 없습니다.</li>
-                    <li>다른 카테고리를 선택하시거나, 검색 기능을 활용해 보세요.</li>
-                  </ul>
-                  <ul class="archive">
-                    <li>선택하신 기간에 등록된 글이 없습니다.</li>
-                  </ul>
+              <div class="postWrap">
+                <div class="post-header">
+                  <span>[##_list_conform_##]</span>
+                  <em>[##_list_count_##]</em>
                 </div>
-              </s_list_empty>
+
+                <!-- 리스트에 글이 없는 경우 보이는 영역 -->
+                <s_list_empty>
+                  <div class="not-found">
+                    <ul>
+                      <li>입력하신 단어의 철자가 정확한지 확인해 보세요.</li>
+                      <li>검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 보세요.</li>
+                      <li>두 단어 이상의 키워드로 검색 하신 경우, 정확하게 띄어쓰기를 한 후 검색해 보세요.</li>
+                    </ul>
+                    <ul class="tag">
+                      <li>선택하신 태그에 해당하는 글이 없습니다.</li>
+                      <li>다른 태그를 선택하시거나, 검색 기능을 활용해 보세요.</li>
+                    </ul>
+                    <ul class="category">
+                      <li>선택하신 카테고리에 해당하는 글이 없습니다.</li>
+                      <li>다른 카테고리를 선택하시거나, 검색 기능을 활용해 보세요.</li>
+                    </ul>
+                    <ul class="archive">
+                      <li>선택하신 기간에 등록된 글이 없습니다.</li>
+                    </ul>
+                  </div>
+                </s_list_empty>
+                <!-- //리스트에 글이 없는 경우 보이는 영역 -->
+              </div>
             </s_list>
+            <!-- //리스트 그룹 치환자 -->
 
             <s_article_protected>
               <s_index_article_rep>

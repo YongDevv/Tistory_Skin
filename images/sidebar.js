@@ -1,3 +1,4 @@
+// DOM이 완전히 준비되었을 때 실행할 코드
 $(function(){
   function sideScript(){
     function insertIcon(){
