@@ -139,6 +139,30 @@ a:active {
 
 /* Component */
 /* Components */
+/* 포스팅 리스트 커스텀 */
+.postWrap .postHeader {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 44px;
+}
+.postWrap .postHeader > .title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  color: #fff;
+}
+.postWrap .postHeader .result {
+  color: #9b9fa9;
+  font-size: 16px;
+}
+.postWrap .postHeader .result > span {
+  font-weight: 700;
+  color: #fff;
+}
+
 .btn, a.btn {
   display: inline-block;
   min-width: 80px;
@@ -801,15 +825,6 @@ a:active {
   content: none;
 }
 
-.post-header {
-  padding-top: 4px;
-}
-.post-header h1 {
-  margin-bottom: 18px;
-  font-size: 1em;
-  line-height: 1.375;
-}
-
 #tt-body-archive .post-header span:before {
   content: "'";
 }
@@ -826,92 +841,6 @@ a:active {
 }
 #tt-body-search .post-header span:after {
   content: "'의 검색결과";
-}
-
-/* 메인 퀵 메뉴 */
-body:not(#tt-body-index) .quickWrap {
-  display: none;
-}
-
-/* body:not(#tt-body-index or #tt-body-category) .quickWrap {
-  display: none;
-} */
-.quickWrap {
-  margin-bottom: 40px;
-}
-.quickWrap .quickTit {
-  display: block;
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: #fff;
-}
-.quickWrap .quickList {
-  display: flex;
-}
-.quickWrap .quickList li {
-  border-radius: 8px;
-}
-.quickWrap .quickList li > a {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 26px;
-  width: 100%;
-  height: 180px;
-  border-radius: 6px;
-  transition: box-shadow 0.4s ease, transform 0.4s ease;
-  transition: all 0.2s;
-  border-radius: 4px;
-}
-.quickWrap .quickList li > a:focus-visible {
-  outline: 2px solid #E91E63;
-}
-.quickWrap .quickList li > a:focus-visible {
-  outline-offset: 4px;
-}
-.quickWrap .quickList li > a:hover {
-  transform: scale(1.02);
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-}
-.quickWrap .quickList li:nth-child(1) > a {
-  background: #4e7cff url("./images/img-category-game.png") no-repeat center right 10px/145px auto;
-}
-.quickWrap .quickList li:nth-child(1) > a:hover {
-  box-shadow: 0px 2px 25px rgb(78, 124, 255);
-}
-.quickWrap .quickList li:nth-child(2) > a {
-  background: #7033ff url("./images/img-category-language.png") no-repeat top 20px right 20px/160px auto;
-}
-.quickWrap .quickList li:nth-child(2) > a:hover {
-  box-shadow: 0px 2px 25px rgb(112, 51, 255);
-}
-.quickWrap .quickList li:nth-child(3) > a {
-  background: #ff9e28 url("./images/img-category-daily.png") no-repeat top -1px right -16px/180px auto;
-}
-.quickWrap .quickList li:nth-child(3) > a:hover {
-  box-shadow: 0px 2px 25px rgb(255, 158, 40);
-}
-.quickWrap .quickList li:nth-child(4) > a {
-  background: #f65164 url("./images/img-category-info1.png") no-repeat center right -30px/220px auto;
-}
-.quickWrap .quickList li:nth-child(4) > a:hover {
-  box-shadow: 0px 2px 25px rgb(246, 81, 100);
-}
-.quickWrap .quickList li > a strong {
-  margin-bottom: 10px;
-  letter-spacing: -0.04em;
-  font-size: 34px;
-  font-weight: 700;
-  color: #fff;
-}
-.quickWrap .quickList li > a span {
-  line-height: 1.4;
-  font-size: 16px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.8352941176);
 }
 
 /* 글 리스트 커스텀 */
@@ -1083,42 +1012,6 @@ body:not(#tt-body-index) .quickWrap {
   background:#282c37;
   transform:skew(-20deg);
 } */
-.post-header {
-  margin-bottom: 50px;
-}
-.post-header span {
-  font-weight: 400;
-  color: #9b9fa9;
-}
-.post-header em {
-  margin-left: 7px;
-  font-style: normal;
-  font-weight: 500;
-  color: #fff;
-}
-
-.post-item a {
-  display: block;
-  text-decoration: none;
-}
-.post-item .meta span:first-child:before {
-  content: none;
-}
-.post-item.protected .thum:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 34px;
-  height: 47px;
-  margin: -24px 0 0 -17px;
-  background: url("./images/ico_package.png") no-repeat 0 -120px;
-  background-size: 120px auto;
-}
-.post-item.protected .excerpt, .post-item.protected .title, .post-item.protected .meta {
-  color: #fff;
-}
-
 /* 
 .post-item .thum {
   position: relative;
@@ -3748,6 +3641,7 @@ body.toggleMode #container #content {
   padding: 108px 20px 70px 20px;
 }
 body.toggleMode #footer {
+  margin-left: unset;
   width: 100%;
 }
 
@@ -4441,6 +4335,8 @@ body.toggleMode #footer {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin-left: 260px;
+  width: calc(100% - 260px);
   height: 60px;
   border-top: 1px solid #313540;
   background: #1f212d;
@@ -4495,27 +4391,6 @@ body.toggleMode #footer {
 #footer .page-top:focus, #footer .page-top:hover {
   background-color: #479bff;
   background-position-x: -150px;
-}
-
-#tt-body-index .main-slider {
-  display: block;
-}
-#tt-body-index .post-cover.notice {
-  height: auto;
-  background-color: transparent;
-}
-#tt-body-index .post-cover.notice h1 {
-  margin: 0;
-  font-size: 1.6875em;
-  line-height: 1.5;
-  color: #000;
-}
-#tt-body-index .post-cover.notice h1 a {
-  color: #000;
-}
-#tt-body-index .post-cover.notice .meta {
-  margin: 0 0 30px;
-  color: rgba(0, 0, 0, 0.6);
 }
 
 #tt-body-page #container {
@@ -4919,4 +4794,111 @@ body.toggleMode #footer {
     background-position: 0% 50%;
     transform: rotate(360deg);
   }
+}
+#tt-body-index .main-slider {
+  display: block;
+}
+#tt-body-index .post-cover.notice {
+  height: auto;
+  background-color: transparent;
+}
+#tt-body-index .post-cover.notice h1 {
+  margin: 0;
+  font-size: 1.6875em;
+  line-height: 1.5;
+  color: #000;
+}
+#tt-body-index .post-cover.notice h1 a {
+  color: #000;
+}
+#tt-body-index .post-cover.notice .meta {
+  margin: 0 0 30px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* 메인 퀵 메뉴 */
+body:not(#tt-body-index) .quickWrap {
+  display: none;
+}
+
+/* body:not(#tt-body-index or #tt-body-category) .quickWrap {
+  display: none;
+} */
+.quickWrap {
+  margin-bottom: 40px;
+}
+.quickWrap .quickTit {
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.01rem;
+  color: #fff;
+}
+.quickWrap .quickList {
+  display: flex;
+}
+.quickWrap .quickList li {
+  border-radius: 8px;
+}
+.quickWrap .quickList li > a {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 26px;
+  width: 100%;
+  height: 180px;
+  border-radius: 6px;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+  transition: all 0.2s;
+  border-radius: 4px;
+}
+.quickWrap .quickList li > a:focus-visible {
+  outline: 2px solid #E91E63;
+}
+.quickWrap .quickList li > a:focus-visible {
+  outline-offset: 4px;
+}
+.quickWrap .quickList li > a:hover {
+  transform: scale(1.02);
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+}
+.quickWrap .quickList li:nth-child(1) > a {
+  background: #4e7cff url("./images/img-category-game.png") no-repeat center right 10px/145px auto;
+}
+.quickWrap .quickList li:nth-child(1) > a:hover {
+  box-shadow: 0px 2px 25px rgb(78, 124, 255);
+}
+.quickWrap .quickList li:nth-child(2) > a {
+  background: #7033ff url("./images/img-category-language.png") no-repeat top 20px right 20px/160px auto;
+}
+.quickWrap .quickList li:nth-child(2) > a:hover {
+  box-shadow: 0px 2px 25px rgb(112, 51, 255);
+}
+.quickWrap .quickList li:nth-child(3) > a {
+  background: #ff9e28 url("./images/img-category-daily.png") no-repeat top -1px right -16px/180px auto;
+}
+.quickWrap .quickList li:nth-child(3) > a:hover {
+  box-shadow: 0px 2px 25px rgb(255, 158, 40);
+}
+.quickWrap .quickList li:nth-child(4) > a {
+  background: #f65164 url("./images/img-category-info1.png") no-repeat center right -30px/220px auto;
+}
+.quickWrap .quickList li:nth-child(4) > a:hover {
+  box-shadow: 0px 2px 25px rgb(246, 81, 100);
+}
+.quickWrap .quickList li > a strong {
+  margin-bottom: 10px;
+  letter-spacing: -0.04em;
+  font-size: 34px;
+  font-weight: 700;
+  color: #fff;
+}
+.quickWrap .quickList li > a span {
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8352941176);
 }/*# sourceMappingURL=style.css.map */

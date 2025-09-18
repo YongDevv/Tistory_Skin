@@ -48,10 +48,10 @@
 		// });
 
 		$(document).on('click', function(e) {
-    if(!$(e.target).closest($profile).length) {
-      $profile.find("nav").hide();
-    }
-  })
+			if(!$(e.target).closest($profile).length) {
+				$profile.find("nav").hide();
+			}
+		})
 
 		$(document).on("keyup", function(e) {
 			if (e.which == 27){

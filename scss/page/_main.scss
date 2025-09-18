@@ -1,0 +1,107 @@
+#tt-body-index {
+  .main-slider {
+    display: block;
+  }
+  .post-cover {
+    &.notice {
+      height: auto;
+      background-color: transparent;
+      h1 {
+        margin: 0;
+        font-size: 1.6875em;
+        line-height: 1.5;
+        color: #000;
+        a {
+          color: #000;
+        }
+      }
+      .meta {
+        margin: 0 0 30px;
+        color: rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+}
+
+/* 메인 퀵 메뉴 */
+body:not(#tt-body-index) .quickWrap {
+  display: none;
+}
+
+/* body:not(#tt-body-index or #tt-body-category) .quickWrap {
+  display: none;
+} */
+
+.quickWrap {
+  margin-bottom: 40px;
+  .quickTit {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.01rem;
+    color: $pure;
+  }
+  .quickList {
+    display: flex;
+    li {
+      border-radius: 8px;
+      > a {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-left: 26px;
+        width: 100%;
+        height: 180px;
+        border-radius: 6px;
+        transition: box-shadow 0.4s ease, transform 0.4s ease;
+        @include focus(out);
+        &:hover {
+          transform: scale(1.02);
+          -webkit-transform: scale(1.02);
+          -ms-transform: scale(1.02);
+        }
+      }
+      &:nth-child(1) > a {
+        background: #4e7cff url('./images/img-category-game.png') no-repeat center right 10px / 145px auto;
+        &:hover {
+          box-shadow: 0px 2px 25px rgba(78, 124, 255, 1);
+        }
+      }
+      &:nth-child(2) > a {
+        background: #7033ff url('./images/img-category-language.png') no-repeat top 20px right 20px / 160px auto;
+        &:hover {
+          box-shadow: 0px 2px 25px rgba(112, 51, 255, 1);
+        }
+      }
+      &:nth-child(3) > a {
+        background: #ff9e28 url('./images/img-category-daily.png') no-repeat top -1px right -16px / 180px auto;
+        &:hover {
+          box-shadow: 0px 2px 25px rgba(255, 158, 40, 1);
+        }
+      }
+      &:nth-child(4) > a {
+        background: #f65164 url('./images/img-category-info1.png') no-repeat center right -30px / 220px auto;
+        &:hover {
+          box-shadow: 0px 2px 25px rgba(246, 81, 100, 1);
+        }
+      }
+      > a {
+        strong {
+          margin-bottom: 10px;
+          letter-spacing: -0.04em;
+          font-size: 34px;
+          font-weight: 700;
+          color: #fff;
+        }
+        span {
+          line-height: 1.4;
+          font-size: 16px;
+          font-weight: 400;
+          color: #ffffffd5;
+        }
+      }
+    }
+  }
+}

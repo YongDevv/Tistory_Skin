@@ -61,6 +61,7 @@ body {
       }
     }
     #footer {
+      margin-left: unset;
       width: 100%;
     }
   }
@@ -722,6 +723,8 @@ body {
 
 #footer {
   @include flex(row, wrap, center, center);
+  margin-left: $asideWidth;
+  width: calc(100% - $asideWidth);
   height: 60px;
   border-top: 1px solid #313540;
   background: $bgColor;
@@ -782,31 +785,6 @@ body {
     &:hover {
       background-color: #479bff;
       background-position-x: -150px;
-    }
-  }
-}
-
-#tt-body-index {
-  .main-slider {
-    display: block;
-  }
-  .post-cover {
-    &.notice {
-      height: auto;
-      background-color: transparent;
-      h1 {
-        margin: 0;
-        font-size: 1.6875em;
-        line-height: 1.5;
-        color: #000;
-        a {
-          color: #000;
-        }
-      }
-      .meta {
-        margin: 0 0 30px;
-        color: rgba(0, 0, 0, 0.6);
-      }
     }
   }
 }

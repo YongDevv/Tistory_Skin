@@ -303,7 +303,7 @@
           <!-- content -->
           <article id="content">
             <div class="quickWrap quickSwiper">
-              <strong class="quickTit">추천 카테고리</strong>
+              <h2 class="quickTit">추천 카테고리</h2>
               <ul class="quickList swiper-wrapper">
                 <li class="swiper-slide">
                   <a href="">
@@ -510,10 +510,14 @@
             <!-- 리스트 그룹 치환자 -->
             <s_list>
               <div class="postWrap">
-                <div class="post-header">
+                <header class="postHeader">
+                  <h2 class="title">[##_list_conform_##]</h2>
+                  <div class="result">총 <span>[##_list_count_##]</span>건</div>
+                </header>
+                <!-- <div class="post-header">
                   <span>[##_list_conform_##]</span>
                   <em>[##_list_count_##]</em>
-                </div>
+                </div> -->
 
                 <!-- 리스트에 글이 없는 경우 보이는 영역 -->
                 <s_list_empty>
@@ -734,7 +738,7 @@
       유용한정보 : '<i class="fa-solid fa-circle-info"></i>',
     };
   </script>
-  <script src="./images/sidebar.js"5></script>
+  <script src="./images/common.js"></script>
   <!-- <script>		
     var category = decodeURI(window.location.pathname.split('/')[window.location.pathname.split('/').length-1]);
       if (category == "카테고리1" || category == "카테고리2") {

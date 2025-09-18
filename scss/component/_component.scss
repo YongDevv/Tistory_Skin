@@ -1,5 +1,28 @@
 /* Components */
 
+/* 포스팅 리스트 커스텀 */
+.postWrap {
+  .postHeader {
+    @include flex(row, wrap, between, center);
+    margin-bottom: 44px;
+    >.title {
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.01rem;
+      color: #fff;
+    }
+    .result {
+      color: #9b9fa9;
+      font-size: 16px;
+      >span {
+        font-weight: 700;
+        color: #fff;
+      }
+    }
+  }
+}
+
+////////////////////////// 기존 코드 ///////////////////////
 .btn, a.btn {
   display: inline-block;
   min-width: 80px;
@@ -750,14 +773,14 @@
   }
 }
 
-.post-header {
-  padding-top: 4px;
-  h1 {
-    margin-bottom: 18px;
-    font-size: 1em;
-    line-height: 1.375;
-  }
-}
+// .post-header {
+//   padding-top: 4px;
+//   h1 {
+//     margin-bottom: 18px;
+//     font-size: 1em;
+//     line-height: 1.375;
+//   }
+// }
 
 #tt-body-archive .post-header span {
   &:before {
@@ -779,89 +802,6 @@
 
   &:after {
     content: "'의 검색결과";
-  }
-}
-
-/* 메인 퀵 메뉴 */
-
-body:not(#tt-body-index) .quickWrap {
-  display: none;
-}
-
-/* body:not(#tt-body-index or #tt-body-category) .quickWrap {
-  display: none;
-} */
-
-.quickWrap {
-  margin-bottom: 40px;
-  .quickTit {
-    display: block;
-    margin-bottom: 20px;
-    font-size: 22px;
-    font-weight: 500;
-    letter-spacing: -0.04em;
-    color: $pure;
-  }
-  .quickList {
-    display: flex;
-    li {
-      border-radius: 8px;
-      > a {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding-left: 26px;
-        width: 100%;
-        height: 180px;
-        border-radius: 6px;
-        transition: box-shadow 0.4s ease, transform 0.4s ease;
-        @include focus(out);
-        &:hover {
-          transform: scale(1.02);
-          -webkit-transform: scale(1.02);
-          -ms-transform: scale(1.02);
-        }
-      }
-      &:nth-child(1) > a {
-        background: #4e7cff url('./images/img-category-game.png') no-repeat center right 10px / 145px auto;
-        &:hover {
-          box-shadow: 0px 2px 25px rgba(78, 124, 255, 1);
-        }
-      }
-      &:nth-child(2) > a {
-        background: #7033ff url('./images/img-category-language.png') no-repeat top 20px right 20px / 160px auto;
-        &:hover {
-          box-shadow: 0px 2px 25px rgba(112, 51, 255, 1);
-        }
-      }
-      &:nth-child(3) > a {
-        background: #ff9e28 url('./images/img-category-daily.png') no-repeat top -1px right -16px / 180px auto;
-        &:hover {
-          box-shadow: 0px 2px 25px rgba(255, 158, 40, 1);
-        }
-      }
-      &:nth-child(4) > a {
-        background: #f65164 url('./images/img-category-info1.png') no-repeat center right -30px / 220px auto;
-        &:hover {
-          box-shadow: 0px 2px 25px rgba(246, 81, 100, 1);
-        }
-      }
-      > a {
-        strong {
-          margin-bottom: 10px;
-          letter-spacing: -0.04em;
-          font-size: 34px;
-          font-weight: 700;
-          color: #fff;
-        }
-        span {
-          line-height: 1.4;
-          font-size: 16px;
-          font-weight: 400;
-          color: #ffffffd5;
-        }
-      }
-    }
   }
 }
 
@@ -1014,45 +954,45 @@ body:not(#tt-body-index) .quickWrap {
   transform:skew(-20deg);
 } */
 
-.post-header {
-  margin-bottom: 50px;
-  span {
-    font-weight: 400;
-    color: #9b9fa9;
-  }
-  em {
-    margin-left: 7px;
-    font-style: normal;
-    font-weight: 500;
-    color: #fff;
-  }
-}
+// .post-header {
+//   margin-bottom: 50px;
+//   span {
+//     font-weight: 400;
+//     color: #9b9fa9;
+//   }
+//   em {
+//     margin-left: 7px;
+//     font-style: normal;
+//     font-weight: 500;
+//     color: #fff;
+//   }
+// }
 
-.post-item {
-  a {
-    display: block;
-    text-decoration: none;
-  }
-  .meta span:first-child:before {
-    content: none;
-  }
-  &.protected {
-    .thum:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 34px;
-      height: 47px;
-      margin: -24px 0 0 -17px;
-      background: url('./images/ico_package.png') no-repeat 0 -120px;
-      background-size: 120px auto;
-    }
-    .excerpt, .title, .meta {
-      color: #fff;
-    }
-  }
-}
+// .post-item {
+//   a {
+//     display: block;
+//     text-decoration: none;
+//   }
+//   .meta span:first-child:before {
+//     content: none;
+//   }
+//   &.protected {
+//     .thum:before {
+//       content: "";
+//       position: absolute;
+//       top: 50%;
+//       left: 50%;
+//       width: 34px;
+//       height: 47px;
+//       margin: -24px 0 0 -17px;
+//       background: url('./images/ico_package.png') no-repeat 0 -120px;
+//       background-size: 120px auto;
+//     }
+//     .excerpt, .title, .meta {
+//       color: #fff;
+//     }
+//   }
+// }
 
 /* 
 .post-item .thum {
