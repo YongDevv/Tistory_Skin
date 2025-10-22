@@ -1,5 +1,6 @@
 (function($) {
 
+	//-- common() --//
 	function common(){
 		var $gnb = $("#gnb"),
 			$header = $("#header"),
@@ -120,6 +121,27 @@
 			}
 		})
 	}
+
+	const $btnPost = $('.btn_post')
+	$btnPost.on("click", function() {
+		const $layerPost = $(this).next('.layer_post')
+		const rect = $layerPost[0].getBoundingClientRect()
+		const winH = $(window).height();
+		const scrollTop = $(window).scrollTop();
+		if((rect.bottom + $layerPost.height() + 12) > (winH + scrollTop)) {
+			$layerPost.css({
+				'top': 'unset !important',
+				'bottom': 'calc(100% + 12px)',
+			})
+		} else {
+			$layerPost.css({
+				'bottom': 'unset !important',
+				'top': 'calc(100% + 12px)',
+			})
+		}
+	})
+
+	//-- common() --//
 
 	function mainSlider(){
 		var $slider = $(".main-slider");

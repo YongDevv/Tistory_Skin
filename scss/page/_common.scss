@@ -136,7 +136,7 @@ body {
         padding: 16px;
         border-radius: 6px;
         background: #282c37;
-        box-shadow: 0 3px 10px #171c2d;
+        box-shadow: 0px 0px 10px 5px #1c1e29;
         .left {
           .headerSearch {
             input {
@@ -242,19 +242,17 @@ body {
             width: 96px;
             @include translate(x, -50%);
             ul {
-              box-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+              box-shadow: 0px 0px 10px 5px #1c1e29;
               li {
                 a {
                   display: block;
-                  margin-top: -1px;
                   padding: 8px 0;
-                  border: 1px solid $bgColor;
-                  background-color: #282c37;
                   text-align: center;
                   text-decoration: none;
                   font-size: 14px;
                   line-height: 1.5;
                   color: #c7cbd6;
+                  background-color: #282c37;
                   &:focus,
                   &:hover {
                     background-color: #2f3340;
@@ -887,7 +885,7 @@ body {
           display: flex;
           align-items: center;
           gap: 6px;
-          .ico_postbtn {
+          .ico_like {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -905,6 +903,9 @@ body {
               font-weight: 700;
               font-size: 18px;
             }
+          }
+          &.like_on {
+            .ico_like { color: red; }
           }
         }
         .txt_like {
@@ -967,6 +968,32 @@ body {
             position: inline-block;
           }
         }
+      }
+      .layer_post {
+        padding: unset;
+        width: 110px;
+        top: calc(100% + 12px);
+        left: 50% !important;
+        bottom: unset !important;
+        box-shadow: 0px 0px 10px 5px #1c1e29;
+        @include translate(x, -50%);
+        .btn_mark {
+          display: block;
+          padding: 10px 8;
+          width: 100%;
+          text-align: center;
+          text-decoration: none;
+          font-size: 14px;
+          line-height: 1.5;
+          color: #c7cbd6;
+          background-color: #282c37;
+          &:focus,
+          &:hover {
+            background-color: #2f3340;
+            color: #fff;
+          }
+        }
+        .ico_sns, .ico_arrbt { display: none; }
       }
     }
   }

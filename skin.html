@@ -10,6 +10,15 @@
   <script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
   <script src="./images/js/gsap.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-08X8LZ6YNB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-08X8LZ6YNB');
+  </script>
   <!-- <style type="text/css">
     <s_if_var_point-color>.entry-content a,
     .post-header h1 em,
@@ -509,158 +518,160 @@
 
             <!-- 리스트 그룹 치환자 -->
             <s_list>
-              <div class="postWrap">
-                <header class="postHeader">
-                  <h2 class="title">[##_list_conform_##]</h2>
-                  <div class="result">총 <span>[##_list_count_##]</span>건</div>
-                </header>
-                <!-- <div class="post-header">
-                  <span>[##_list_conform_##]</span>
-                  <em>[##_list_count_##]</em>
-                </div> -->
+              <!-- <div class="post-header">
+                <span>[##_list_conform_##]</span>
+                <em>[##_list_count_##]</em>
+              </div> -->
 
-                <!-- 리스트에 글이 없는 경우 보이는 영역 -->
-                <s_list_empty>
-                  <div class="not-found">
-                    <ul>
-                      <li>입력하신 단어의 철자가 정확한지 확인해 보세요.</li>
-                      <li>검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 보세요.</li>
-                      <li>두 단어 이상의 키워드로 검색 하신 경우, 정확하게 띄어쓰기를 한 후 검색해 보세요.</li>
-                    </ul>
-                    <ul class="tag">
-                      <li>선택하신 태그에 해당하는 글이 없습니다.</li>
-                      <li>다른 태그를 선택하시거나, 검색 기능을 활용해 보세요.</li>
-                    </ul>
-                    <ul class="category">
-                      <li>선택하신 카테고리에 해당하는 글이 없습니다.</li>
-                      <li>다른 카테고리를 선택하시거나, 검색 기능을 활용해 보세요.</li>
-                    </ul>
-                    <ul class="archive">
-                      <li>선택하신 기간에 등록된 글이 없습니다.</li>
-                    </ul>
-                  </div>
-                </s_list_empty>
-                <!-- //리스트에 글이 없는 경우 보이는 영역 -->
-              </div>
+              <!-- 리스트에 글이 없는 경우 보이는 영역 -->
+              <s_list_empty>
+                <div class="not-found">
+                  <ul>
+                    <li>입력하신 단어의 철자가 정확한지 확인해 보세요.</li>
+                    <li>검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 보세요.</li>
+                    <li>두 단어 이상의 키워드로 검색 하신 경우, 정확하게 띄어쓰기를 한 후 검색해 보세요.</li>
+                  </ul>
+                  <ul class="tag">
+                    <li>선택하신 태그에 해당하는 글이 없습니다.</li>
+                    <li>다른 태그를 선택하시거나, 검색 기능을 활용해 보세요.</li>
+                  </ul>
+                  <ul class="category">
+                    <li>선택하신 카테고리에 해당하는 글이 없습니다.</li>
+                    <li>다른 카테고리를 선택하시거나, 검색 기능을 활용해 보세요.</li>
+                  </ul>
+                  <ul class="archive">
+                    <li>선택하신 기간에 등록된 글이 없습니다.</li>
+                  </ul>
+                </div>
+              </s_list_empty>
+              <!-- //리스트에 글이 없는 경우 보이는 영역 -->
             </s_list>
             <!-- //리스트 그룹 치환자 -->
+            
+            <!-- 포스트 리스트 영역 -->
+            <div class="postWrap">
+              <header class="postHeader">
+                <h2 class="title">[##_list_conform_##]</h2>
+                <div class="result">총 <span>[##_list_count_##]</span>건</div>
+              </header>
+              <s_article_protected>
+                <s_index_article_rep>
+                  <div class="postItem protected">
+                    <a href="[##_article_rep_link_##]">
+                      <span class="thum"></span>
+                      <span class="title">[##_article_rep_title_##]</span>
+                      <span class="excerpt">보호되어 있는 글 입니다.</span>
+                      <span class="meta">
+                        <span class="date">[##_article_rep_simple_date_##]</span>
+                      </span>
+                    </a>
+                  </div>
+                </s_index_article_rep>
 
-            <s_article_protected>
-              <s_index_article_rep>
-                <div class="post-item protected">
-                  <a href="[##_article_rep_link_##]">
-                    <span class="thum"></span>
-                    <span class="title">[##_article_rep_title_##]</span>
-                    <span class="excerpt">보호되어 있는 글 입니다.</span>
-                    <span class="meta">
-                      <span class="date">[##_article_rep_simple_date_##]</span>
-                    </span>
-                  </a>
-                </div>
-              </s_index_article_rep>
+                <s_permalink_article_rep>
+                  <div class="entry-content">
+                    <form class="protected_form" onsubmit="{reloadEntry(14);return false;}">
+                      <h2>보호되어 있는 글입니다.</h2>
+                      <p>내용을 보시려면 비밀번호를 입력하세요.</p>
+                      <input type="password" id="entry14password" name="entry14password" value="" placeholder="비밀번호">
+                      <button type="submit" class="btn">확인</button>
+                    </form>
+                  </div>
+                </s_permalink_article_rep>
+              </s_article_protected>
 
-              <s_permalink_article_rep>
-                <div class="entry-content">
-                  <form class="protected_form" onsubmit="{reloadEntry(14);return false;}">
-                    <h2>보호되어 있는 글입니다.</h2>
-                    <p>내용을 보시려면 비밀번호를 입력하세요.</p>
-                    <input type="password" id="entry14password" name="entry14password" value="" placeholder="비밀번호">
-                    <button type="submit" class="btn">확인</button>
-                  </form>
-                </div>
-              </s_permalink_article_rep>
-            </s_article_protected>
-
-            <!-- inner -->
-            <div class="inner">
-              <!-- listWrap -->
-              <div class="listWrap">
-                <s_article_rep>
-                  <s_index_article_rep>
-                    <div class="post-item">
-                      <a href="[##_article_rep_link_##]">
-                        <svg>
-                          <g><path class="st0" d="M100,30H0V10C0,4.5,4.5,0,10,0h55.5c2.9,0,5.6,1.1,7.7,3.2L100,30L100,30z"/></g>
-                        </svg>
-                        <div class="itemTop">
-                          <span class="itemTag">[##_article_rep_category_##]</span>
-                          <img src="./images/ico-list-07.svg" alt="">
+              <!-- inner -->
+              <div class="inner">
+                <!-- listWrap -->
+                <div class="listWrap">
+                  <s_article_rep>
+                    <s_index_article_rep>
+                      <div class="postItem">
+                        <a href="[##_article_rep_link_##]">
+                          <svg>
+                            <g><path class="st0" d="M100,30H0V10C0,4.5,4.5,0,10,0h55.5c2.9,0,5.6,1.1,7.7,3.2L100,30L100,30z"/></g>
+                          </svg>
+                          <div class="itemTop">
+                            <span class="itemTag">[##_article_rep_category_##]</span>
+                            <img src="./images/ico-list-07.svg" alt="">
+                          </div>
+                          <span class="title">[##_article_rep_title_##]</span>
+                          <span class="meta">
+                            <span class="date">[##_article_rep_simple_date_##]</span>
+                          </span>
+                        </a>
+                        <div class="postItemHover"></div>
+                      </div>
+                    </s_index_article_rep>
+  
+                    <s_permalink_article_rep>
+                      <div class="post-cover">
+                        <div class="inner">
+                          <span class="category">[##_article_rep_category_##]</span>
+                          <h1>[##_article_rep_title_##]</h1>
+                          <span class="meta">
+                            <span class="author">by [##_article_rep_author_##]</span>
+                            <span class="date">[##_article_rep_simple_date_##]</span>
+                            [##_s_ad_isolation_##]
+                          </span>
                         </div>
-                        <span class="title">[##_article_rep_title_##]</span>
-                        <span class="meta">
-                          <span class="date">[##_article_rep_simple_date_##]</span>
-                        </span>
-                      </a>
-                      <div class="postItemHover"></div>
-                    </div>
-                  </s_index_article_rep>
-
-                  <s_permalink_article_rep>
-                    <div class="post-cover">
-                      <div class="inner">
-                        <span class="category">[##_article_rep_category_##]</span>
-                        <h1>[##_article_rep_title_##]</h1>
-                        <span class="meta">
-                          <span class="author">by [##_article_rep_author_##]</span>
-                          <span class="date">[##_article_rep_simple_date_##]</span>
-                          [##_s_ad_isolation_##]
-                        </span>
                       </div>
-                    </div>
-                    <div class="entry-content" id="article-view">
-                      [##_article_rep_desc_##]
-                    </div>
-
-                    <s_tag_label>
-                      <div class="tags">
-                        <h2>태그</h2>
-                        [##_tag_label_rep_##]
+                      <div class="entry-content" id="article-view">
+                        [##_article_rep_desc_##]
                       </div>
-                    </s_tag_label>
-
-                    <s_article_related>
-                      <div class="related-articles">
-                        <h2>관련글</h2>
-                        <ul>
-                          <s_article_related_rep>
-                            <li>
-                              <a href="[##_article_related_rep_link_##]">
-                                <!-- 2024-07-04 썸네일 제거 -->
-                                <!-- <figure>
-                                  <s_article_related_rep_thumbnail>
-                                    <img
-                                    src="//i1.daumcdn.net/thumb/C176x120/?fname=[##_article_related_rep_thumbnail_link_##]"
-                                    alt="">
-                                  </s_article_related_rep_thumbnail>
-                                </figure> -->
-                                <!-- // 2024-07-04 썸네일 제거 -->
-                                <span class="title">[##_article_related_rep_title_##]</span>
-                                <span class="date"><i class="fa-regular fa-calendar" style="margin-right:8px;"></i>[##_article_rep_simple_date_##]</span>
-                                <s_tag>
-                                  <s_tag_label>
-                                    <span class="relatedTag">[##_tag_label_rep_##]</span>
-                                  </s_tag_label>
-                                </s_tag>
-                              </a>
-                            </li>
-                          </s_article_related_rep>
-                        </ul>
-                      </div>
-                    </s_article_related>
-
-                    <div class="comments">
-                      <s_rp>
-                        <div class="tt-comments-wrap">
-                          [##_comment_group_##]
+  
+                      <s_tag_label>
+                        <div class="tags">
+                          <h2>태그</h2>
+                          [##_tag_label_rep_##]
                         </div>
-                      </s_rp>
-                    </div>
-                  </s_permalink_article_rep>
-                </s_article_rep>
+                      </s_tag_label>
+  
+                      <s_article_related>
+                        <div class="related-articles">
+                          <h2>관련글</h2>
+                          <ul>
+                            <s_article_related_rep>
+                              <li>
+                                <a href="[##_article_related_rep_link_##]">
+                                  <!-- 2024-07-04 썸네일 제거 -->
+                                  <!-- <figure>
+                                    <s_article_related_rep_thumbnail>
+                                      <img
+                                      src="//i1.daumcdn.net/thumb/C176x120/?fname=[##_article_related_rep_thumbnail_link_##]"
+                                      alt="">
+                                    </s_article_related_rep_thumbnail>
+                                  </figure> -->
+                                  <!-- // 2024-07-04 썸네일 제거 -->
+                                  <span class="title">[##_article_related_rep_title_##]</span>
+                                  <span class="date"><i class="fa-regular fa-calendar" style="margin-right:8px;"></i>[##_article_rep_simple_date_##]</span>
+                                  <s_tag>
+                                    <s_tag_label>
+                                      <span class="relatedTag">[##_tag_label_rep_##]</span>
+                                    </s_tag_label>
+                                  </s_tag>
+                                </a>
+                              </li>
+                            </s_article_related_rep>
+                          </ul>
+                        </div>
+                      </s_article_related>
+  
+                      <div class="comments">
+                        <s_rp>
+                          <div class="tt-comments-wrap">
+                            [##_comment_group_##]
+                          </div>
+                        </s_rp>
+                      </div>
+                    </s_permalink_article_rep>
+                  </s_article_rep>
+                </div>
+                <!-- // listWrap -->
               </div>
-              <!-- // listWrap -->
+              <!-- // inner -->
             </div>
-            <!-- // inner -->
+            <!-- // 포스트 리스트 영역 -->
 
             <s_tag>
               <div class="post-header">
