@@ -128,6 +128,7 @@
 		const rect = $layerPost[0].getBoundingClientRect()
 		const winH = $(window).height();
 		const scrollTop = $(window).scrollTop();
+		console.log((rect.bottom + $layerPost.height() + 12) > (winH + scrollTop))
 		if((rect.bottom + $layerPost.height() + 12) > (winH + scrollTop)) {
 			$layerPost.css({
 				'top': 'unset !important',

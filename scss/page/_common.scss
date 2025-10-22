@@ -881,6 +881,10 @@ body {
         height: initial;
         border-radius: 4px;
         background: #282c37;
+        &.uoc-icon { 
+          @include flex(row, wrap, center, center);
+          min-width: 56px;
+        }
         .uoc-icon {
           display: flex;
           align-items: center;
@@ -975,11 +979,11 @@ body {
         top: calc(100% + 12px);
         left: 50% !important;
         bottom: unset !important;
-        box-shadow: 0px 0px 10px 5px #1c1e29;
+        box-shadow: 0px 0px 10px 2px #14151c;
         @include translate(x, -50%);
         .btn_mark {
           display: block;
-          padding: 10px 8;
+          padding: 10px 8px;
           width: 100%;
           text-align: center;
           text-decoration: none;
