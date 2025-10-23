@@ -87,19 +87,19 @@
       $aside.removeClass('open')
       $aside.addClass('open')
       $('.dimmed').css('display', 'block');
-      // $('body').css('overflow', 'hidden');
+      $('body').css('overflow', 'hidden');
     })
   
     $lnbCloseBtn.on('click', function() {
       $aside.removeClass('open')
       $('.dimmed').css('display', 'none');
-      // $('body').css('overflow', '');
+      $('body').css('overflow', '');
     })
     $(document).on('click', function(e) {
       if(!$(e.target).closest($aside).length) {
         $aside.removeClass('open')
         $('.dimmed').css('display', 'none');
-        // $('body').css('overflow', '');
+        $('body').css('overflow', '');
       }
     })
   }

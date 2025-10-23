@@ -57,6 +57,26 @@
     align-items: $value4;
   }
 }
+// flex-direction
+@mixin direction($breakpoint, $value1) {
+  @if $breakpoint == each { @include each(flex-direction, $value1, $value2); }
+  @else { @include r($breakpoint) { flex-direction: $value1; } }
+}
+// flex-wrap
+@mixin wrap($breakpoint, $value1) {
+  @if $breakpoint == each { @include each(flex-wrap, $value1, $value2); }
+  @else { @include r($breakpoint) { flex-wrap: $value1; } }
+}
+// justify-content
+@mixin justify($breakpoint, $value1) {
+  @if $breakpoint == each { @include each(justify-content, $value1, $value2); }
+  @else { @include r($breakpoint) { justify-content: $value1; } }
+}
+// align-items
+@mixin align($breakpoint, $value1) {
+  @if $breakpoint == each { @include each(align-items, $value1, $value2); }
+  @else { @include r($breakpoint) { align-items: $value1; } }
+}
 
 @mixin transition($value1, $value2, $value3, $value4:null) {
   transition: $value1 $value2 $value3 $value4;

@@ -224,6 +224,12 @@
   @else { @include r($breakpoint) { opacity: $value1; } }
 }
 
+// Order
+@mixin order($breakpoint, $value1) {
+  @if $breakpoint == each { @include each(order, $value1, $value2); }
+  @else { @include r($breakpoint) { order: $value1; } }
+}
+
 // Transition
 // @mixin transition($breakpoint, $value1, $value2:empty) {
 //   @if $breakpoint == each { @include prefix(transition, each, $value1, $value2); }

@@ -7,7 +7,8 @@ html {
     display: none;
   }
   &::-webkit-scrollbar-track {
-    background: $bgColor;
+    // background: $bgColor;
+    background: $color-sub;
   }
   &::-webkit-scrollbar-thumb {
     border: 1px solid transparent;
@@ -23,8 +24,18 @@ body {
     #header {
       margin-left: unset;
       width: 100%;
+      &.scroll {
+        .inner {
+          padding: unset;
+          .headerWrap {
+            margin-top: unset;
+            padding: 16px 30px;
+            border-radius: unset;
+          }
+        }
+      }
       .inner {
-        padding: 0 20px;
+        padding: 0 30px;
         .headerWrap {
           .left {
             flex: unset;            
@@ -42,8 +53,8 @@ body {
     #container {
       #aside {
         top: 0;
-        right: -$asideWidth - 20px;
-        width: $asideWidth + 20px;
+        right: -$asideWidth - 40px;
+        width: $asideWidth + 40px;
         @include transition(all, ease-out, 0.2s);
         &.open {
           right: 0;
@@ -57,7 +68,7 @@ body {
         }
       }
       #content {
-        padding: 108px 20px 70px 20px;
+        padding: 108px 30px 70px 30px;
       }
     }
     #footer {
@@ -152,6 +163,7 @@ body {
     position: relative;
     padding: 0 40px;
     margin: 0 auto;
+    transition: all 1s ease;
 
     .headerWrap {
       display: flex;
@@ -210,6 +222,7 @@ body {
           gap: 10px;
           color: #fff;
           >li:not(.profile):not(.lnbBtn) {
+            @include display($narrow, none);
             >a, >button {
               display: block;
               font-size: 20px;
@@ -412,7 +425,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 24px 20px;
+    padding: 24px 16px;
     .asideLogo {
       display: block;
       margin-right: 10px;
@@ -425,11 +438,62 @@ body {
       }
     }
     .lnbTop {
-      @include flex(row, nowrap, start, center);
-      gap: 10px;
+      @include flex(row, nowrap, between, center);
+      @include wrap($narrow, wrap);
+      gap: 16px;
+      .blogMenu {
+        display: none;
+        @include display($narrow, flex);
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        >li:not(.profile):not(.lnbBtn) {
+          >a, >button {
+            display: block;
+            font-size: 20px;
+            color: #9b9fa9;
+            @include focus(out);
+            border-radius: 6px;
+            background: #323947;
+            i {
+              width: 40px;
+              height: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              transition: all 0.15s ease-in;
+            }
+            &:hover i {
+              color: #fff;
+            }
+          }
+        }
+        &:before {
+          display: block;
+          content: "";
+          position: absolute;
+          top: -10px;
+          left: 0;
+          height: 10px;
+          width: 100%;
+          background: $bgColor;
+        }
+        &:after {
+          display: block;
+          content: "";
+          position: absolute;
+          top: -1px;
+          left: 0;
+          height: 1px;
+          width: 100%;
+          background: #363840;
+        }
+      }
       .lnbSearch {
+        @include order($narrow, 3);
         display: none;
         position: relative;
+        width: 100%;
         input {
           padding: 0 50px 0 14px;
           width: 100%;
@@ -788,38 +852,91 @@ body {
 }
 
 #tt-body-page {
-  #container {
-    padding-top: 78px;
-    &.post-cover-hide {
-      padding-top: 0;
-    }
-  }
   .post-cover {
+    position: relative;
+    z-index: 20;
+    display: block;
     width: 100%;
-    height: initial;
-    background: initial;
-    &::before {
-      background-color: initial;
-    }
+    height: 100%;
     .inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      gap: 16px;
       padding: 50px 0;
       border-bottom: 1px solid #292c39;
-    }
-    h1 {
-      color: #fff;
+      .category {
+        font-size: 16px;
+        color: #99999d;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.5;
+        color: #fff;
+        text-align: center;
+      }
+      .meta {
+        @include flex(row, wrap, center, center);
+        gap: 4px;
+        font-size: 14px;
+        color: #99999d;
+        .date {
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 2px;
+            height: 2px;
+            margin: 0 8px 0 4px;
+            background-color: #99999d;
+            vertical-align: middle;
+          }
+          &:first-child:before {
+            content: none;
+          }
+        }
+        .my_edit {
+          .btn_etc {
+            margin: unset;
+          }
+          .layer_edit {
+            padding: unset;
+            border: unset;
+            border-radius: unset;
+            box-shadow: 0px 0px 10px 5px #16171e;
+            .btn_g {
+              display: block;
+              padding: 10px 8px;
+              width: 110px;
+              text-align: center;
+              text-decoration: none;
+              font-size: 14px;
+              line-height: 1.5;
+              color: #c7cbd6;
+              background-color: #282c37;
+              &:focus,
+              &:hover {
+                background-color: #2f3340;
+                color: #fff;
+              }
+            }
+            .ico_arrb { display: none; }
+          }
+        }
+      }
     }
   }
 
   .listWrap {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 30px;
-    row-gap: 40px;
+    gap: 40px;
     background-color: rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 0 60px;
-    max-width: 1240px;
+    @include padding($narrow, 0 30px);
+    max-width: 70%;
+    @include max-width(1240px, unset);
   }
 
   #article-view {
@@ -1217,10 +1334,6 @@ body {
       }
     }
   }
-}
-
-#tt-body-page #content {
-  padding-top: 40px;
 }
 
 @keyframes menuAni {
