@@ -125,18 +125,16 @@
 	const $btnPost = $('.btn_post')
 	$btnPost.on("click", function() {
 		const $layerPost = $(this).next('.layer_post')
-		const rect = $layerPost[0].getBoundingClientRect()
+		const btnTop = $(this).offset().top;
+		const btnHeight = $(this).outerWidth();
 		const winH = $(window).height();
 		const scrollTop = $(window).scrollTop();
-		console.log((rect.bottom + $layerPost.height() + 12) > (winH + scrollTop))
-		if((rect.bottom + $layerPost.height() + 12) > (winH + scrollTop)) {
+		if((btnTop + btnHeight + $layerPost.height() + 12) > (winH + scrollTop)) {
 			$layerPost.css({
-				'top': 'unset !important',
-				'bottom': 'calc(100% + 12px)',
+				'top': -$layerPost.height() - 12,
 			})
 		} else {
 			$layerPost.css({
-				'bottom': 'unset !important',
 				'top': 'calc(100% + 12px)',
 			})
 		}

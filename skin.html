@@ -634,14 +634,14 @@
                       <div class="entry-content" id="article-view">
                         [##_article_rep_desc_##]
                       </div>
-  
+
                       <s_tag_label>
                         <div class="tags">
                           <h2>태그</h2>
                           [##_tag_label_rep_##]
                         </div>
                       </s_tag_label>
-  
+
                       <s_article_related>
                         <div class="related-articles">
                           <h2>관련글</h2>
@@ -689,14 +689,71 @@
             <!-- // 포스트 리스트 영역 -->
 
             <s_tag>
-              <div class="post-header">
-                <h1>태그 클라우드</h1>
+              <!-- 태그 클라우드 -->
+              <div class="tagCloud">
+                <!-- 태그 영역 -->
+                <div class="tagArea">
+                  <header class="tagHeader">
+                    <h2 class="title">태그 클라우드</h2>
+                  </header>
+                  <!-- 숫자 태그 모음 -->
+                  <div class="tags">
+                    <header class="tagHeader">
+                      <h3 id="tag01" class="title">숫자 <span>(1 ~ 9)</span></h3>
+                    </header>
+                    <div class="tagList num"></div>
+                  </div>
+                  <!-- // 숫자 태그 모음 -->
+  
+                  <!-- 영문 태그 모음 -->
+                  <div class="tags">
+                    <header class="tagHeader">
+                      <h3 id="tag02" class="title">영문 <span>(A ~ Z)</span></h3>
+                    </header>
+                    <div class="tagList eng"></div>
+                  </div>
+                  <!-- // 영문 태그 모음 -->
+  
+                  <!-- 국문 태그 모음 -->
+                  <div class="tags">
+                    <header class="tagHeader">
+                      <h3 id="tag03" class="title">국문 <span>(ㄱ ~ ㅎ)</span></h3>
+                    </header>
+                    <div class="tagList kor"></div>
+                  </div>
+                  <!-- // 국문 태그 모음 -->
+                </div>
+                <!-- // 태그 영역 -->
+                <!-- 정렬 영역 -->
+                <div class="sortArea">
+                  <header class="tagHeader">
+                    <h2 class="title">정렬</h2>
+                  </header>
+                  <div class="sortBtns">
+                    <button type="button" id="sortAsc">오름차순<i class="fa-solid fa-arrow-up-wide-short"></i></button>
+                    <button type="button" id="sortDesc">내림차순<i class="fa-solid fa-arrow-down-wide-short"></i></button>
+                  </div>
+                  <ul class="tocMenu">
+                    <li class="tocNum"><a href="#tag01">숫자 <span style="font-size: 17px;">(1 ~ 9)</span></a></li>
+                    <li class="tocEng"><a href="#tag02">영문 <span>(A ~ Z)</span></a></li>
+                    <li class="tocKor"><a href="#tag03">국문 <span>(ㄱ ~ ㅎ)</span></a></li>
+                  </ul>
+                </div>
+                <!-- // 정렬 영역 -->
+                <!-- 정렬 토글 버튼 -->
+                <button type="button" class="sortToggle"><i class="fa-solid fa-filter"></i></button>
+                <!-- // 정렬 토글 버튼 -->
+                
+                <!-- 태그 치환 정보 -->
+                <div class="hiddenTags">
+                  <s_tag_rep>
+                    <a href="[##_tag_link_##]">[##_tag_name_##]</a>
+                  </s_tag_rep>
+                </div>
+                <!-- // 태그 치환 정보 -->
               </div>
-              <div class="tags">
-                <s_tag_rep>
-                  <a href="[##_tag_link_##]">[##_tag_name_##]</a>
-                </s_tag_rep>
-              </div>
+              <!-- // 태그 클라우드 -->
+
             </s_tag>
 
             <s_guest>

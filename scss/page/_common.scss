@@ -190,6 +190,7 @@ body {
             border: none;
             background: #282c37;
             @include focus(out);
+            &:focus { outline: none; }
             &::placeholder { color: #9b9fa9; }
           }
           button {
@@ -505,6 +506,7 @@ body {
           border: none;
           background: $bgColor;
           @include focus(out);
+          &:focus { outline: none; }
           &::placeholder { color: #9b9fa9; }
         }
         button {
@@ -1148,12 +1150,17 @@ body {
       gap: 12px;
       a {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 6px 16px 6px 36px;
-        width: initial;
-        height: initial;
-        font-size: 14px;
         line-height: 22px;
+        text-align: center;
+        font-size: 14px;
+        color: #9b9fa9;
+        border: none;
         border-radius: 4px;
+        background: #282c37;
         &:hover {
           color: #fff;
         }
@@ -1298,41 +1305,118 @@ body {
 }
 
 #tt-body-tag {
-  .post-header {
-    margin-bottom: 20px;
-
-    h1 {
-      margin-bottom: 0;
-      font-size: 22px;
-      font-weight: 500;
-      letter-spacing: -0.04em;
-      color: #fff;
-    }
-  }
-
-  .tags {
-    margin-top: 0;
-
-    a {
-      display: flex;
-      padding: 6px 17px;
-      border: none;
-      height: 70px;
-      border-radius: 4px;
-      font-size: 14px;
-      line-height: 22px;
-      text-align: center;
-      color: #9b9fa9;
-      width: calc(12.5% - 17.5px);
-      background: #282c37;
-      justify-content: center;
-      align-items: center;
-
-      &:hover {
+  .tagCloud {
+    position: relative;
+    @include flex(row, nowrap, start, start);
+    .tagHeader {
+      margin-bottom: 20px;
+      .title {
+        margin-bottom: 0;
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: -0.04em;
         color: #fff;
-        background: #0d5ebd;
       }
     }
+    .tagArea {
+      width: 100%;
+      max-width: calc(100% - 300px);
+      .tags {
+        .tagHeader {
+          .title {
+            font-size: 19px;
+          }
+        }
+        .tagList {
+          margin-top: 0;
+          @include flex(row, wrap, start, start);
+          gap: 20px;
+          >a {
+            display: flex;
+            padding: 6px 17px;
+            border: none;
+            height: 70px;
+            border-radius: 4px;
+            font-size: 14px;
+            line-height: 22px;
+            text-align: center;
+            color: #9b9fa9;
+            width: calc(12.5% - 17.5px);
+            background: #282c37;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+              color: #fff;
+              background: #0d5ebd;
+            }
+          }
+        }
+      }
+    }
+    .sortArea {
+      position: fixed;
+      top: 110px;
+      right: 0;
+      width: 300px;
+      .sortBtns {
+        @include flex(row, nowrap, start, center);
+        gap: 4px;
+        margin-bottom: 24px;
+        >button {
+          @include flex(row, wrap, center, center);
+          gap: 4px;
+          padding: 6px 10px;
+          color: #fff;
+          border-radius: 6px;
+          background: #323947;
+        }
+      }
+      .tocMenu {
+        @include flex(column, wrap, start, start);
+        gap: 16px;
+        >li {
+          @include flex(row, wrap, start, center);
+          >a {
+            position: relative;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration: none;
+            @include transition(all, .2s, ease-out);
+            &:hover {
+              padding-left: 12px;
+              color: #fff;
+              &:before {
+                @include size(3px, 26px);
+                background: #fff;
+              }
+            }
+            &:before {
+              content: '';
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              margin: auto 0;
+              @include size(0, 26px);
+              border-radius: 2px;
+              background: rgba(255, 255, 255, 0.2);
+              @include transition(all, .2s, ease-out);
+            }
+          }
+        }
+      }
+    }
+    .sortToggle {
+      display: none;
+      @include display($narrow, flex);
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include size(40px);
+    }
+    .hiddenTags { display: none; }
   }
 }
 
