@@ -122,6 +122,7 @@
 		})
 	}
 
+	// 포스팅 하단 버튼 레이어 위치 조정 기능
 	const $btnPost = $('.btn_post')
 	$btnPost.on("click", function() {
 		const $layerPost = $(this).next('.layer_post')
@@ -139,6 +140,69 @@
 			})
 		}
 	})
+
+	// 태그 클라우드 정렬 기능
+	if($('#tt-body-tag').length) {
+		const $allTags = $('.hiddenTags a');
+		const numWrap = $('.tagList.num');
+		const engWrap = $('.tagList.eng');
+		const korWrap = $('.tagList.kor');
+
+		//초기 태그 분류
+		$allTags.each(function() {
+			const $tag = $(this);
+			const text = $(this).text().trim();
+			const code = text.charCodeAt(0);
+			const wrap = (code >= 48 && code <= 57) ? numWrap
+									: (code >= 65 && code <= 90) || (code >= 97 && code <= 122) ? engWrap
+									: (code >= 0xAC00 && code <= 0xD7A3) ? korWrap
+									: null;
+
+			if(wrap) wrap.append($tag.clone());
+
+			// 정렬 함수 정의
+			function customSort(a, b, order = 'asc') {
+				const valA = $(a).text();
+				const valB = $(b).text();
+
+				// 첫 글자 유니코드로 문자 타입 분류
+				function charType(ch) {
+					const code = ch.charCodeAt(0);
+					if (code >= 48 && code <= 57) return 1;           // 숫자
+					if (code >= 65 && code <= 90) return 2;           // 영어 대문자
+					if (code >= 97 && code <= 122) return 3;          // 영어 소문자
+					if (code >= 0xAC00 && code <= 0xD7A3) return 4;   // 한글
+					return 5; // 기타
+				}
+
+				const typeA = charType(valA.charAt(0));
+				const typeB = charType(valB.charAt(0));
+
+				// 문자 타입 차이 있을 경우 타입 우선순위 기반 정렬
+				if (typeA !== typeB) {
+					return order === 'asc' ? typeA - typeB : typeB - typeA;
+				}
+
+				// 같은 타입일 경우 유니코드 기준 문자열 비교
+				if (valA < valB) return order === 'asc' ? -1 : 1;
+				if (valA > valB) return order === 'asc' ? 1 : -1;
+				return 0;
+			}
+
+			// 정렬 함수 (앞서 정의된 customSort 사용)
+			function sortTags(order) {
+				['.tagList.num', '.tagList.eng', '.tagList.kor'].forEach(selector => {
+					const $container = $(selector);
+					const sorted = $container.children('a').sort((a, b) => customSort(a, b, order));
+					$container.html(sorted);
+				});
+			}
+
+			// 버튼 이벤트
+			$('#sortAsc').click(() => sortTags('asc'));
+			$('#sortDesc').click(() => sortTags('desc'));
+		})
+	}
 
 	//-- common() --//
 
