@@ -1,6 +1,6 @@
 (function($) {
 
-	//-- common() --//
+	//*** common() ***//
 	function common(){
 		var $gnb = $("#gnb"),
 			$header = $("#header"),
@@ -10,20 +10,21 @@
 			$pageTop = $(".page-top"),
 			gnbWidth = 0;
 
-		$(window).load(function(){
-			$gnb.find("li").each(function(){
-				gnbWidth  = gnbWidth + $(this).outerWidth() + 1;
-				if ( window.location.pathname == $(this).find("a").attr("href")){
-					$(this).addClass("current");
-				}
-			});
-			$gnb.find("ul").width(gnbWidth);
+			// GNB 활성화 탭 가로 스크롤 자동 계산
+		// $(window).load(function(){
+		// 	$gnb.find("li").each(function(){
+		// 		gnbWidth  = gnbWidth + $(this).outerWidth() + 1;
+		// 		if ( window.location.pathname == $(this).find("a").attr("href")){
+		// 			$(this).addClass("current");
+		// 		}
+		// 	});
+		// 	$gnb.find("ul").width(gnbWidth);
 
-			if ( $gnb.width() < $gnb.find("ul").width() && $gnb.find(".current").length ){
-				var scrollPos = $gnb.find(".current").prev().length ? $gnb.find(".current").prev().position().left : $gnb.find(".current").position().left;
-				$gnb.scrollLeft( scrollPos );
-			}
-		});
+		// 	if ( $gnb.width() < $gnb.find("ul").width() && $gnb.find(".current").length ){
+		// 		var scrollPos = $gnb.find(".current").prev().length ? $gnb.find(".current").prev().position().left : $gnb.find(".current").position().left;
+		// 		$gnb.scrollLeft( scrollPos );
+		// 	}
+		// });
 
 		$search.on("click", function(){
 			if ( !$(this).hasClass("on") ){
@@ -148,48 +149,40 @@
 		const engWrap = $('.tagList.eng');
 		const korWrap = $('.tagList.kor');
 
+		// 각 태그묶음 배열화
+		const numTags = [];
+		const engTags = [];
+		const korTags = [];
+
 		//초기 태그 분류
 		$allTags.each(function() {
 			const $tag = $(this);
 			const text = $(this).text().trim();
 			const code = text.charCodeAt(0);
-			const wrap = (code >= 48 && code <= 57) ? numWrap
-									: (code >= 65 && code <= 90) || (code >= 97 && code <= 122) ? engWrap
-									: (code >= 0xAC00 && code <= 0xD7A3) ? korWrap
-									: null;
+			
+			if (code >= 48 && code <= 57) numTags.push($tag.clone());
+			else if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) engTags.push($tag.clone());
+			else if (code >= 0xAC00 && code <= 0xD7A3) korTags.push($tag.clone());
 
-			if(wrap) wrap.append($tag.clone());
-
-			// 정렬 함수 정의
+			// 오름차순 정렬 함수
 			function customSort(a, b, order = 'asc') {
 				const valA = $(a).text();
 				const valB = $(b).text();
-
-				// 첫 글자 유니코드로 문자 타입 분류
-				function charType(ch) {
-					const code = ch.charCodeAt(0);
-					if (code >= 48 && code <= 57) return 1;           // 숫자
-					if (code >= 65 && code <= 90) return 2;           // 영어 대문자
-					if (code >= 97 && code <= 122) return 3;          // 영어 소문자
-					if (code >= 0xAC00 && code <= 0xD7A3) return 4;   // 한글
-					return 5; // 기타
-				}
-
-				const typeA = charType(valA.charAt(0));
-				const typeB = charType(valB.charAt(0));
-
-				// 문자 타입 차이 있을 경우 타입 우선순위 기반 정렬
-				if (typeA !== typeB) {
-					return order === 'asc' ? typeA - typeB : typeB - typeA;
-				}
-
-				// 같은 타입일 경우 유니코드 기준 문자열 비교
 				if (valA < valB) return order === 'asc' ? -1 : 1;
 				if (valA > valB) return order === 'asc' ? 1 : -1;
 				return 0;
 			}
 
-			// 정렬 함수 (앞서 정의된 customSort 사용)
+			// 초기 태그 정렬
+			numTags.sort((a, b) => customSort(a, b, 'asc'))
+			engTags.sort((a, b) => customSort(a, b, 'asc'))
+			korTags.sort((a, b) => customSort(a, b, 'asc'))
+
+			numWrap.append(numTags);
+			engWrap.append(engTags);
+			korWrap.append(korTags);
+
+			// 정렬 버튼 함수
 			function sortTags(order) {
 				['.tagList.num', '.tagList.eng', '.tagList.kor'].forEach(selector => {
 					const $container = $(selector);
@@ -197,14 +190,62 @@
 					$container.html(sorted);
 				});
 			}
+		})
 
-			// 버튼 이벤트
-			$('#sortAsc').click(() => sortTags('asc'));
-			$('#sortDesc').click(() => sortTags('desc'));
+		// 버튼 이벤트
+		$('#sortAsc').click(function() {
+			$(this).addClass('on').siblings().removeClass('on');
+			sortTags('asc');
+			console.log('aaa')
+		})
+		$('#sortDesc').click(function() {
+			$(this).addClass('on').siblings().removeClass('on');
+			sortTags('desc');
+			console.log('bbb')
+		})
+	}
+	// 태그 클라우드 책갈피 기능
+	if($('#tt-body-tag').length) {
+		const $tocMenu = $('.tocMenu a');
+		const $tocFunc = $('.tocFunc');
+		const $tocSec = $tocFunc.find('>section');
+		const tocOffset = 100;
+
+		$(window).on('scroll', function() { 
+			const scrollPos = $(window).scrollTop() + tocOffset
+
+			let currentToc = '';
+			$tocSec.each(function() {
+				const tocTop = $(this).offset().top;
+				const tocBottom = tocTop + $(this).outerHeight();
+
+				if(scrollPos > tocTop && scrollPos < tocBottom) {
+					currentToc = $(this).attr('id')
+					return false
+				}
+			})
+
+			$tocMenu.each(function() {
+				const $tocHref = $(this).attr('href');
+				if($tocHref === '#' + currentToc) {
+					$(this).addClass('active');
+				} else {
+					$(this).removeClass('active');
+				}
+			})
+		})
+
+
+		$tocMenu.on('click', function(e) {
+			e.preventDefault();
+			const target = $(this).attr('href')
+			$('html, body').animate({
+				scrollTop: $(target).offset().top - tocOffset
+			}, 400)
 		})
 	}
 
-	//-- common() --//
+	//*** common() ***//
 
 	function mainSlider(){
 		var $slider = $(".main-slider");
