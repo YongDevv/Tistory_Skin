@@ -154,6 +154,15 @@
 		const engTags = [];
 		const korTags = [];
 
+		// 오름차순 정렬 함수
+		function customSort(a, b, order = 'asc') {
+			const valA = $(a).text();
+			const valB = $(b).text();
+			if (valA < valB) return order === 'asc' ? -1 : 1;
+			if (valA > valB) return order === 'asc' ? 1 : -1;
+			return 0;
+		}
+
 		//초기 태그 분류
 		$allTags.each(function() {
 			const $tag = $(this);
@@ -164,14 +173,6 @@
 			else if ((code >= 65 && code <= 90) || (code >= 97 && code <= 122)) engTags.push($tag.clone());
 			else if (code >= 0xAC00 && code <= 0xD7A3) korTags.push($tag.clone());
 
-			// 오름차순 정렬 함수
-			function customSort(a, b, order = 'asc') {
-				const valA = $(a).text();
-				const valB = $(b).text();
-				if (valA < valB) return order === 'asc' ? -1 : 1;
-				if (valA > valB) return order === 'asc' ? 1 : -1;
-				return 0;
-			}
 
 			// 초기 태그 정렬
 			numTags.sort((a, b) => customSort(a, b, 'asc'))
@@ -181,29 +182,57 @@
 			numWrap.append(numTags);
 			engWrap.append(engTags);
 			korWrap.append(korTags);
-
-			// 정렬 버튼 함수
-			function sortTags(order) {
-				['.tagList.num', '.tagList.eng', '.tagList.kor'].forEach(selector => {
-					const $container = $(selector);
-					const sorted = $container.children('a').sort((a, b) => customSort(a, b, order));
-					$container.html(sorted);
-				});
-			}
 		})
+
+		// 정렬 버튼 함수
+		function sortTags(order) {
+			['.tagList.num', '.tagList.eng', '.tagList.kor'].forEach(selector => {
+				const $container = $(selector);
+				const sorted = $container.children('a').sort((a, b) => customSort(a, b, order));
+				$container.html(sorted);
+			});
+		}
+		// 정렬 텍스트 변경 함수
+		function changeTitles(order) {
+			const $numTitle = $('#tag01 .tagHeader .title span')
+			const $engTitle = $('#tag02 .tagHeader .title span')
+			const $korTitle = $('#tag03 .tagHeader .title span')
+			const $numToc = $('.tocNum a span')
+			const $engToc = $('.tocEng a span')
+			const $korToc = $('.tocKor a span')
+
+			if(order === 'asc') {
+				// 오름차순일 때
+				$numTitle.text('(1 ~ 9)');
+				$engTitle.text('(A ~ Z)');
+				$korTitle.text('(ㄱ ~ ㅎ)');
+				$numToc.text('(1 ~ 9)');
+				$engToc.text('(A ~ Z)');
+				$korToc.text('(ㄱ ~ ㅎ)');
+			} else if (order === "desc") {
+				// 내림차순일 때
+				$numTitle.text('(9 ~ 1)');
+				$engTitle.text('(Z ~ A)');
+				$korTitle.text('(ㅎ ~ ㄱ)');
+				$numToc.text('(9 ~ 1)');
+				$engToc.text('(Z ~ A)');
+				$korToc.text('(ㅎ ~ ㄱ)');
+			}
+		}
 
 		// 버튼 이벤트
 		$('#sortAsc').click(function() {
 			$(this).addClass('on').siblings().removeClass('on');
 			sortTags('asc');
-			console.log('aaa')
+			changeTitles('asc');
 		})
 		$('#sortDesc').click(function() {
 			$(this).addClass('on').siblings().removeClass('on');
 			sortTags('desc');
-			console.log('bbb')
+			changeTitles('desc');
 		})
 	}
+
 	// 태그 클라우드 책갈피 기능
 	if($('#tt-body-tag').length) {
 		const $tocMenu = $('.tocMenu a');
@@ -213,16 +242,23 @@
 
 		$(window).on('scroll', function() { 
 			const scrollPos = $(window).scrollTop() + tocOffset
-
 			let currentToc = '';
-			$tocSec.each(function() {
-				const tocTop = $(this).offset().top;
-				const tocBottom = tocTop + $(this).outerHeight();
 
-				if(scrollPos > tocTop && scrollPos < tocBottom) {
-					currentToc = $(this).attr('id')
-					return false
+			$tocSec.each(function(index) {
+				const tocTop = $(this).offset().top;
+				const tocBottom = tocTop + $(this).outerHeight() + 40;
+
+				if(index === 0) {
+					const firstTop = $(this).offset().top;
+					if(scrollPos >= 0 && scrollPos < firstTop) {
+						currentToc = $(this).attr('id')
+					}
 				}
+
+				if(scrollPos >= tocTop && scrollPos < tocBottom) {
+					currentToc = $(this).attr('id')
+				}
+
 			})
 
 			$tocMenu.each(function() {
@@ -235,17 +271,88 @@
 			})
 		})
 
-
 		$tocMenu.on('click', function(e) {
 			e.preventDefault();
 			const target = $(this).attr('href')
 			$('html, body').animate({
 				scrollTop: $(target).offset().top - tocOffset
-			}, 400)
+			}, 200)
+		})
+	}
+
+	// 태그 클라우드 정렬 토글 버튼
+	if($('#tt-body-tag').length) {
+		const sortToggle = $('.sortToggle')
+		const sortCls = $('.sortCls');
+
+		sortToggle.on('click', function() {
+			$('.sortArea').addClass('open');
+		})
+		sortCls.on('click', function() {
+			$('.sortArea').removeClass('open');
 		})
 	}
 
 	//*** common() ***//
+
+	/* swiper */
+	const fn_swiper = () => {
+		// 메인 카테고리 swiper
+		var quickSwiper = new Swiper('.quickSwiper', {
+			breakpoints: {
+				// 320px 이상에서
+				320: {
+				slidesPerView: 1,    // 한 번에 1개의 슬라이드
+				spaceBetween: 16,     // 슬라이드 간 간격
+				},
+				// 768px 이상에서
+				768: {
+				slidesPerView: 2,    // 한 번에 2개의 슬라이드
+				spaceBetween: 24,     // 슬라이드 간 간격
+				},
+				// 1100px 이상에서
+				1100: {
+				slidesPerView: 3,    // 한 번에 3개의 슬라이드
+				spaceBetween: 24,     // 슬라이드 간 간격
+				},
+				// 1460px 이상에서
+				1460: {
+				slidesPerView: 4,
+				spaceBetween: 28,     // 슬라이드 간 간격
+				}
+			}
+		});
+
+		// 관련글 swiper
+		var relatedSwiper = new Swiper('.relatedSwiper', {
+			scrollbar: {
+				el: ".swiper-scrollbar",
+				hide: false,
+			},
+			breakpoints: {
+				// 320px 이상에서
+				320: {
+				slidesPerView: 1.2,    // 한 번에 1개의 슬라이드
+				spaceBetween: 16,     // 슬라이드 간 간격
+				},
+				// 450px 이상에서
+				450: {
+				slidesPerView: 2.2,    // 한 번에 2개의 슬라이드
+				spaceBetween: 20,     // 슬라이드 간 간격
+				},
+				// 820px 이상에서
+				820: {
+				slidesPerView: 3.2,    // 한 번에 3개의 슬라이드
+				spaceBetween: 20,     // 슬라이드 간 간격
+				},
+				// 1024px 이상에서
+				1024: {
+				slidesPerView: 4,
+				spaceBetween: 20,     // 슬라이드 간 간격
+				}
+			}
+		});
+	}
 
 	function mainSlider(){
 		var $slider = $(".main-slider");
@@ -571,6 +678,7 @@
 
 	// Execute
 	common();
+	if ( $(".swiperFunc").length ) fn_swiper();
 	if ( $(".main-slider").length ) mainSlider();
 	if ( $(".paging-view-more").length && $(".post-item").length ) viewMore();
 	if ( $(".tab-ui").length ) tabUI($(".tab-ui"));
@@ -578,5 +686,4 @@
 	if ( $(".cover-thumbnail-2").length ) coverLoadMore();
 	if ( $(".cover-thumbnail-3, .cover-thumbnail-4").length ) coverSlider();
 	if ( $("#tt-body-page").length ) postCover();
-
 })(jQuery);

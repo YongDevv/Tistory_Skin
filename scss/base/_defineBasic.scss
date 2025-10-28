@@ -108,8 +108,8 @@
 
 // Height
 @mixin height($breakpoint, $value1, $value2:empty) {
-  @if $breakpoint == each { @include each(width, $value1, $value2); }
-  @else { @include r($breakpoint) { width: $value1; } }
+  @if $breakpoint == each { @include each(height, $value1, $value2); }
+  @else { @include r($breakpoint) { height: $value1; } }
 }
 @mixin min-height($breakpoint, $value1, $value2:empty) {
   @if $breakpoint == each { @include each(min-height, $value1, $value2); }

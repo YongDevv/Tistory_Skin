@@ -333,7 +333,7 @@
           </aside>
           <!-- content -->
           <article id="content">
-            <div class="quickWrap quickSwiper">
+            <div class="swiperFunc quickSwiper">
               <h2 class="quickTit">추천 카테고리</h2>
               <ul class="quickList swiper-wrapper">
                 <li class="swiper-slide">
@@ -643,11 +643,11 @@
                       </s_tag_label>
 
                       <s_article_related>
-                        <div class="related-articles">
+                        <div class="swiperFunc relatedSwiper">
                           <h2>관련글</h2>
-                          <ul>
+                          <ul class="swiper-wrapper">
                             <s_article_related_rep>
-                              <li>
+                              <li class="swiper-slide">
                                 <a href="[##_article_related_rep_link_##]">
                                   <!-- 2024-07-04 썸네일 제거 -->
                                   <!-- <figure>
@@ -728,13 +728,14 @@
                 <div class="sortArea">
                   <header class="tagHeader">
                     <h2 class="title">정렬</h2>
+                    <button type="button" class="sortCls"><i class="fa-solid fa-xmark"></i></button>
                   </header>
                   <div class="sortBtns">
                     <button type="button" id="sortAsc" class="on">오름차순<i class="fa-solid fa-arrow-up-wide-short"></i></button>
                     <button type="button" id="sortDesc">내림차순<i class="fa-solid fa-arrow-down-wide-short"></i></button>
                   </div>
                   <ul class="tocMenu">
-                    <li class="tocNum"><a href="#tag01">숫자 <span style="font-size: 17px;">(1 ~ 9)</span></a></li>
+                    <li class="tocNum"><a href="#tag01" class="active">숫자 <span>(1 ~ 9)</span></a></li>
                     <li class="tocEng"><a href="#tag02">영문 <span>(A ~ Z)</span></a></li>
                     <li class="tocKor"><a href="#tag03">국문 <span>(ㄱ ~ ㅎ)</span></a></li>
                   </ul>
@@ -782,28 +783,14 @@
       <hr>
       <footer id="footer">
         <div class="inner">
-          <!-- <div class="order-menu">
-            <s_if_var_order-link-1-title>
-              <a href="[##_var_order-link-1-url_##]">[##_var_order-link-1-title_##]</a>
-            </s_if_var_order-link-1-title>
-            <s_if_var_order-link-2-title>
-              <a href="[##_var_order-link-2-url_##]">[##_var_order-link-2-title_##]</a>
-            </s_if_var_order-link-2-title>
-            <s_if_var_order-link-3-title>
-              <a href="[##_var_order-link-3-url_##]">[##_var_order-link-3-title_##]</a>
-            </s_if_var_order-link-3-title>
-            <s_if_var_order-link-4-title>
-              <a href="[##_var_order-link-4-url_##]">[##_var_order-link-4-title_##]</a>
-            </s_if_var_order-link-4-title>
-          </div> -->
-          <a href="#" class="page-top">TOP</a>
-          <!-- <p class="meta"><s_if_var_footer-text-1>[##_var_footer-text-,1_##]</s_if_var_footer-text-1></p> -->
+          <a href="#" class="pageTop"><i class="fa-solid fa-arrow-up"></i></a>
           <p class="copyright"><s_if_var_footer-text-2>[##_var_footer-text-2_##]</s_if_var_footer-text-2></p>
         </div>
       </footer>
     </div>
     <!-- //wrap -->
   </s_t3>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="./images/script.js"></script>
 
   <!-- 사이드바 스크립트 -->
@@ -829,39 +816,6 @@
         $(".summary").css("display","none");
       }
   </script>  -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <!-- 추천 카테고리 스와이퍼 -->
-  <script>
-  var quickSwiper = new Swiper('.quickSwiper', {
-    scrollbar: {
-			el: ".swiper-scrollbar",
-			hide: false,
-		},
-    breakpoints: {
-      // 320px 이상에서
-      320: {
-      slidesPerView: 1,    // 한 번에 1개의 슬라이드
-      spaceBetween: 16,     // 슬라이드 간 간격
-      },
-      // 768px 이상에서
-      768: {
-      slidesPerView: 2,    // 한 번에 2개의 슬라이드
-      spaceBetween: 24,     // 슬라이드 간 간격
-      },
-      // 1100px 이상에서
-      1100: {
-      slidesPerView: 3,    // 한 번에 3개의 슬라이드
-      spaceBetween: 24,     // 슬라이드 간 간격
-      },
-      // 1460px 이상에서
-      1460: {
-      slidesPerView: 4,
-      spaceBetween: 28,     // 슬라이드 간 간격
-      }
-    }
-  });
-  </script>
-  <!-- //추천 카테고리 스와이퍼 -->
 </body>
 
 </html>

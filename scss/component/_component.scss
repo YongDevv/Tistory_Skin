@@ -59,9 +59,7 @@
         > a {
           box-shadow: 5px 5px 15px #161820;
           transition: all 0.4s ease-out;
-          transform: translateY(-5px);
-          -webkit-transform: translateY(-5px);
-          -ms-transform: translateY(-5px);
+          @include translate(y, -5px);
           .title {
             color: #fff;
           }
@@ -1142,57 +1140,6 @@
   }
 }
 
-.related-articles {
-  margin-bottom: 55px;
-  h2 {
-    margin-bottom: 15px;
-    font-weight: 600;
-    font-size: 1em;
-  }
-  ul {
-    display: inline-block;
-    width: 101.621621621621622%;
-    margin-left: -1.621621621621622%;
-    vertical-align: top;
-    li {
-      float: left;
-      width: 25%;
-      padding-left: 1.621621621621622%;
-      box-sizing: border-box;
-      &:first-child {
-        margin-left: 0;
-      }
-      a {
-        color: #555;
-        &:hover, &:focus {
-          color: #333;
-        }
-      }
-      figure {
-        display: block;
-        width: 100%;
-        height: 0;
-        margin-bottom: 9px;
-        padding-bottom: 68.181818181818182%;
-        background-color: #f8f8f8;
-        img {
-          width: 100%;
-          height: auto;
-        }
-      }
-      .title {
-        display: block;
-        overflow: hidden;
-        max-width: 95%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: 0.875em;
-        line-height: 1.4;
-      }
-    }
-  }
-}
-
 /* Entry Content */
 
 .entry-content {
@@ -1931,10 +1878,10 @@
     }
   }
 
-  #footer .page-top, .cover-thumbnail-3 button, .cover-thumbnail-4 button, .page-nav a strong:after, .entry-content .protected_form h2:before, .comment-list ul li .author-meta .control button, .comment-form .secret input[type=checkbox]:checked + label:before {
-    background-image: url(./images/ico_package_2x.png);
-    background-size: 200px auto;
-  }
+  // #footer .page-top, .cover-thumbnail-3 button, .cover-thumbnail-4 button, .page-nav a strong:after, .entry-content .protected_form h2:before, .comment-list ul li .author-meta .control button, .comment-form .secret input[type=checkbox]:checked + label:before {
+  //   background-image: url(./images/ico_package_2x.png);
+  //   background-size: 200px auto;
+  // }
 
   .sidebar {
     .social-channel ul li a, .tab-ui h2 a:before {

@@ -24,15 +24,15 @@
 }
 
 /* 메인 퀵 메뉴 */
-body:not(#tt-body-index) .quickWrap {
+body:not(#tt-body-index) .quickSwiper {
   display: none;
 }
 
-/* body:not(#tt-body-index or #tt-body-category) .quickWrap {
+/* body:not(#tt-body-index or #tt-body-category) .quickSwiper {
   display: none;
 } */
 
-.quickWrap {
+.quickSwiper {
   margin-bottom: 40px;
   .quickTit {
     display: block;

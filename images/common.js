@@ -14,7 +14,7 @@
         const $linkTxtChk = categoryIcon[$linkItemTxt] ? true : false;
         
         if($linkTxtChk) {
-            $(this).prepend(categoryIcon[$linkItemTxt]);
+          $(this).prepend(categoryIcon[$linkItemTxt]);
         }
       });
       // 현재 활성화된 페이지 표시
