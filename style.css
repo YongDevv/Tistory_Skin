@@ -3470,7 +3470,7 @@ body.toggleMode #footer {
   gap: 40px;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: 20px;
-  padding: 0 60px;
+  padding: 0 40px;
   max-width: 70%;
 }
 @media screen and (max-width: 768px) {
@@ -3816,10 +3816,11 @@ body.toggleMode #footer {
   position: relative;
   margin-bottom: 40px;
   padding: 40px 20px;
+  min-height: unset !important;
   border-top: 1px solid #292c39;
   border-bottom: 1px solid #292c39;
   border-radius: 6px;
-  background: initial;
+  background: #282c37;
 }
 #tt-body-page .comments .tt_box_namecard .tt_cont {
   padding: initial;

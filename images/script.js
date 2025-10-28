@@ -325,10 +325,6 @@
 
 		// 관련글 swiper
 		var relatedSwiper = new Swiper('.relatedSwiper', {
-			scrollbar: {
-				el: ".swiper-scrollbar",
-				hide: false,
-			},
 			breakpoints: {
 				// 320px 이상에서
 				320: {
@@ -678,7 +674,6 @@
 
 	// Execute
 	common();
-	if ( $(".swiperFunc").length ) fn_swiper();
 	if ( $(".main-slider").length ) mainSlider();
 	if ( $(".paging-view-more").length && $(".post-item").length ) viewMore();
 	if ( $(".tab-ui").length ) tabUI($(".tab-ui"));
@@ -686,4 +681,5 @@
 	if ( $(".cover-thumbnail-2").length ) coverLoadMore();
 	if ( $(".cover-thumbnail-3, .cover-thumbnail-4").length ) coverSlider();
 	if ( $("#tt-body-page").length ) postCover();
+	if ( $(".swiperFunc").length ) fn_swiper();
 })(jQuery);
