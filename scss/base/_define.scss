@@ -58,23 +58,43 @@
   }
 }
 // flex-direction
-@mixin direction($breakpoint, $value1) {
-  @if $breakpoint == each { @include each(flex-direction, $value1, $value2); }
+@mixin direction($breakpoint, $value1:empty, $value2:empty) {
+  @if $value1 == empty { flex-direction: $breakpoint; } 
+  @else if $breakpoint == each { @include each(flex-direction, $value1, $value2); }
   @else { @include r($breakpoint) { flex-direction: $value1; } }
 }
 // flex-wrap
-@mixin wrap($breakpoint, $value1) {
-  @if $breakpoint == each { @include each(flex-wrap, $value1, $value2); }
+@mixin wrap($breakpoint, $value1:empty, $value2:empty) {
+  @if $value1 == empty { flex-wrap: $breakpoint; } 
+  @else if $breakpoint == each { @include each(flex-wrap, $value1, $value2); }
   @else { @include r($breakpoint) { flex-wrap: $value1; } }
 }
 // justify-content
-@mixin justify($breakpoint, $value1) {
-  @if $breakpoint == each { @include each(justify-content, $value1, $value2); }
+@mixin justify($breakpoint, $value1:empty, $value2:empty) {
+  @if $value1 == empty { 
+    @if $breakpoint == start {
+      justify-content: flex-start;
+    } @else if $breakpoint == end {
+      justify-content: flex-end;
+    } @else if $breakpoint == between {
+      justify-content: space-between;
+    } @else { justify-content: $breakpoint; }
+  } 
+  @else if $breakpoint == each { @include each(justify-content, $value1, $value2); }
   @else { @include r($breakpoint) { justify-content: $value1; } }
 }
 // align-items
-@mixin align($breakpoint, $value1) {
-  @if $breakpoint == each { @include each(align-items, $value1, $value2); }
+@mixin align($breakpoint, $value1:empty, $value2:empty) {
+  @if $value1 == empty { 
+    @if $breakpoint == start {
+      align-items: flex-start;
+    } @else if $breakpoint == end {
+      align-items: flex-end;
+    } @else if $breakpoint == between {
+      align-items: space-between;
+    } @else { align-items: $breakpoint; }
+  } 
+  @else if $breakpoint == each { @include each(align-items, $value1, $value2); }
   @else { @include r($breakpoint) { align-items: $value1; } }
 }
 

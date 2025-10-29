@@ -3403,7 +3403,7 @@ body.toggleMode #footer {
   align-items: center;
   gap: 16px;
   padding: 50px 0;
-  border-bottom: 1px solid #292c39;
+  border-bottom: 1px solid #27292f;
 }
 #tt-body-page .post-cover .inner .category {
   font-size: 16px;
@@ -3468,7 +3468,7 @@ body.toggleMode #footer {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: #171922;
   border-radius: 20px;
   padding: 0 40px;
   max-width: 70%;
@@ -3530,7 +3530,7 @@ body.toggleMode #footer {
 #tt-body-page .container_postbtn {
   margin: 40px 0 20px;
   padding: 30px 0 0 0 !important;
-  border-top: 1px solid #333;
+  border-top: 1px solid #27292f;
 }
 #tt-body-page .container_postbtn .postbtn_like {
   display: flex;
@@ -3543,6 +3543,14 @@ body.toggleMode #footer {
   height: initial;
   border-radius: 4px;
   background: #282c37;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+#tt-body-page .container_postbtn .postbtn_like .btn_post:hover {
+  color: #fff !important;
 }
 #tt-body-page .container_postbtn .postbtn_like .btn_post.uoc-icon {
   display: flex;
@@ -3618,7 +3626,6 @@ body.toggleMode #footer {
   font-family: "Font Awesome 6 Free";
   font-weight: 700;
   font-size: 18px;
-  position: inline-block;
 }
 #tt-body-page .container_postbtn .postbtn_like .btn_post .ico_etc {
   display: flex;
@@ -3668,6 +3675,9 @@ body.toggleMode #footer {
   color: #fff;
 }
 #tt-body-page .container_postbtn .postbtn_like .layer_post .ico_sns, #tt-body-page .container_postbtn .postbtn_like .layer_post .ico_arrbt {
+  display: none;
+}
+#tt-body-page .container_postbtn .btn_subscription {
   display: none;
 }
 #tt-body-page .tags {
@@ -3727,8 +3737,11 @@ body.toggleMode #footer {
   font-weight: 700;
 }
 #tt-body-page .relatedSwiper {
+  overflow: hidden;
   margin-bottom: 0;
+  padding-bottom: 40px;
   width: 100%;
+  border-bottom: 1px solid #27292f;
 }
 #tt-body-page .relatedSwiper h2 {
   position: relative;
@@ -3751,6 +3764,7 @@ body.toggleMode #footer {
 #tt-body-page .relatedSwiper ul {
   display: flex;
   width: initial;
+  height: initial;
   margin-left: initial;
   vertical-align: initial;
 }
@@ -3814,13 +3828,12 @@ body.toggleMode #footer {
   align-items: center;
   gap: 20px;
   position: relative;
+  margin-top: unset;
   margin-bottom: 40px;
-  padding: 40px 20px;
+  padding: 20px 0;
   min-height: unset !important;
-  border-top: 1px solid #292c39;
-  border-bottom: 1px solid #292c39;
   border-radius: 6px;
-  background: #282c37;
+  background: transparent;
 }
 #tt-body-page .comments .tt_box_namecard .tt_cont {
   padding: initial;
@@ -3840,6 +3853,223 @@ body.toggleMode #footer {
   width: 80px;
   height: 80px;
   border-radius: 50px;
+}
+#tt-body-page .comments .tt_box_namecard .tt_btn_subscribe {
+  display: none;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-box-total {
+  font-size: 16px;
+  border-bottom: unset;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-box-total .tt_txt_g {
+  color: #9b9fa9;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-box-total .tt_num_g {
+  font-weight: 700;
+  color: #fff;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #27292f;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply {
+  border-radius: 6px;
+  border-bottom: unset;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply {
+  padding: 30px;
+  background: #21242d;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply:first-child {
+  border-radius: 6px 6px 0 0;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply:last-child {
+  border-radius: 0 0 6px 6px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply:first-child:last-child {
+  border-radius: 6px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply + .tt-item-reply {
+  position: relative;
+  border-top: none;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply + .tt-item-reply:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 60px);
+  height: 1px;
+  background: #27292f;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-meta {
+  margin-bottom: 6px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-meta .tt-link-user {
+  font-family: "Pretendard-Regular", sans-serif;
+  color: #9b9fa9;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-desc .tt_desc {
+  color: #fff;
+  word-break: keep-all;
+  margin-bottom: 10px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-info {
+  padding-top: unset;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-info .tt_date {
+  padding-top: unset;
+  font-size: 13px;
+  color: #9b9fa9;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-info .tt-wrap-link-comment {
+  margin-left: 12px;
+  padding-left: 12px;
+  font-size: 13px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-info .tt-wrap-link-comment:before {
+  top: 3px;
+  left: 0;
+  width: 1px;
+  height: 14px;
+  background-color: #585b63;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-wrap-info .tt-wrap-link-comment .tt-link-comment .tt_txt_g {
+  padding-top: unset;
+  font-family: "Pretendard-Regular", sans-serif;
+  color: #9b9fa9;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify {
+  top: 10px;
+  right: 10px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-button-modify {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: unset;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-button-modify:before {
+  content: "\f142";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 700;
+  font-size: 16px;
+  color: #9b9fa9;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-button-modify:hover {
+  background-color: #323947;
+  color: #fff;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write {
+  overflow: hidden;
+  padding: 30px;
+  border-radius: 6px;
+  background: #282c37;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-account {
+  justify-content: flex-start;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-account > input {
+  padding: 0 14px;
+  height: 40px;
+  border: none;
+  color: #fff;
+  background: #1f212d;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g {
+  overflow-y: auto;
+  border: none;
+  background: #1f212d;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g::-webkit-scrollbar {
+  width: 10px;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g::-webkit-scrollbar-button:start:decrement, #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g::-webkit-scrollbar-button:end:increment {
+  display: none;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g::-webkit-scrollbar-track {
+  background: #282c37;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g::-webkit-scrollbar-thumb {
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: #464a54;
+  background-clip: padding-box;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g .tt-cmt {
+  color: #fff;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-textarea .tt-inner-g .tt_txt_user {
+  margin-bottom: 6px;
+  color: #fff;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write {
+  justify-content: space-between;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-xe-label {
+  width: 40px;
+  height: 40px;
+  margin-top: unset;
+  margin-left: unset;
+  min-width: 40px;
+  min-height: 40px;
+  text-align: center;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-xe-label > input[type=checkbox]:checked + .tt-xe-input-helper:before {
+  content: "\f023";
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-xe-label .tt-xe-input-helper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: unset;
+  width: 40px;
+  height: 40px;
+  color: #9b9fa9;
+  background: unset;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-xe-label .tt-xe-input-helper:before {
+  content: "\f3c1";
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Font Awesome 6 Free";
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-xe-label .tt-xe-input-helper:hover {
+  color: #fff;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-btn_register {
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  background-color: #171922;
+  transition: all 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-write .tt-btn_register:hover {
+  border: unset;
+  background-color: #E91E63;
 }
 #tt-body-page .tt-box-textarea .tt-inner-g {
   min-height: 140px;

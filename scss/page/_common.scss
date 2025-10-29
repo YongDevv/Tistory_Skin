@@ -842,7 +842,7 @@ body {
       align-items: center;
       gap: 16px;
       padding: 50px 0;
-      border-bottom: 1px solid #292c39;
+      border-bottom: 1px solid $lineColor4;
       .category {
         font-size: 16px;
         color: #99999d;
@@ -908,7 +908,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: #171922;
     border-radius: 20px;
     padding: 0 40px;
     @include padding($narrow, 0 30px);
@@ -964,7 +964,7 @@ body {
   .container_postbtn {
     margin: 40px 0 20px;
     padding: 30px 0 0 0 !important;
-    border-top: 1px solid #333;
+    border-top: 1px solid $lineColor4;
     .postbtn_like {
       display: flex;
       gap: 10px;
@@ -975,6 +975,10 @@ body {
         height: initial;
         border-radius: 4px;
         background: #282c37;
+        @include transition(all, .2s, ease-out);
+        &:hover {
+          color: #fff !important;
+        }
         &.uoc-icon { 
           @include flex(row, wrap, center, center);
           min-width: 56px;
@@ -1044,7 +1048,6 @@ body {
             font-family: "Font Awesome 6 Free";
             font-weight: 700;
             font-size: 18px;
-            position: inline-block;
           }
         }
         .ico_etc {
@@ -1093,6 +1096,9 @@ body {
         }
         .ico_sns, .ico_arrbt { display: none; }
       }
+    }
+    .btn_subscription {
+      display: none;
     }
   }
 
@@ -1154,8 +1160,11 @@ body {
   }
 
   .relatedSwiper {
+    overflow: hidden;
     margin-bottom: 0;
+    padding-bottom: 40px;
     width: 100%;
+    border-bottom: 1px solid $lineColor4;
     h2 {
       position: relative;
       margin-bottom: 20px;
@@ -1177,6 +1186,7 @@ body {
     ul {
       display: flex;
       width: initial;
+      height: initial;
       margin-left: initial;
       vertical-align: initial;
       li {
@@ -1240,13 +1250,12 @@ body {
       align-items: center;
       gap: 20px;
       position: relative;
+      margin-top: unset;
       margin-bottom: 40px;
-      padding: 40px 20px;
+      padding: 20px 0;
       min-height: unset !important;
-      border-top: 1px solid #292c39;
-      border-bottom: 1px solid #292c39;
       border-radius: 6px;
-      background: #282c37;
+      background: transparent;
       .tt_cont {
         padding: initial;
       }
@@ -1265,6 +1274,221 @@ body {
         width: 80px;
         height: 80px;
         border-radius: 50px;
+      }
+      .tt_btn_subscribe {
+        display: none;
+      }
+    }
+    .tt-comments-wrap {
+      .tt-comment-cont {
+        .tt-box-total {
+          font-size: 16px;
+          border-bottom: unset;
+          .tt_txt_g {
+            color: #9b9fa9;
+          }
+          .tt_num_g {
+            font-weight: 700;
+            color: $pure;
+          }
+        }
+        .tt-area-reply {
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid $lineColor4;
+          .tt-list-reply {
+            border-radius: 6px;
+            border-bottom: unset;
+            .tt-item-reply {
+              padding: 30px;
+              background: #21242d;
+              &:first-child {
+                border-radius: 6px 6px 0 0;
+              }
+              &:last-child {
+                border-radius: 0 0 6px 6px;
+              }
+              &:first-child:last-child {
+                border-radius: 6px;
+              }
+              &+.tt-item-reply {
+                position: relative;
+                border-top: none;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  top: 0;
+                  @include aCenter(horizontal);
+                  width: calc(100% - 60px);
+                  height: 1px;
+                  background: $lineColor4;
+                }
+              }
+              .tt-wrap-cmt {
+                .tt-box-content {
+                  .tt-box-meta {
+                    margin-bottom: 6px;
+                    .tt-link-user {
+                      font-family: 'Pretendard-Regular', sans-serif;
+                      color: #9b9fa9;
+                    }
+                  }
+
+                  .tt-wrap-desc {
+                    .tt_desc {
+                      color: $pure;
+                      word-break: keep-all;
+                      margin-bottom: 10px;
+                    }
+                  }
+
+                  .tt-wrap-info {
+                    padding-top: unset;
+                    .tt_date {
+                      padding-top: unset;
+                      font-size: 13px;
+                      color: #9b9fa9;
+                    }
+                    .tt-wrap-link-comment {
+                      margin-left: 12px;
+                      padding-left: 12px;
+                      font-size: 13px;
+                      &:before {
+                        top: 3px;
+                        left: 0;
+                        width: 1px;
+                        height: 14px;
+                        background-color: $lineColor3;
+                      }
+                      .tt-link-comment {
+                        .tt_txt_g {
+                          padding-top: unset;
+                          font-family: 'Pretendard-Regular', sans-serif;
+                          color: #9b9fa9;
+                        }
+                      }
+                    }
+                  }
+
+                  .tt-box-modify {
+                    top: 10px;
+                    right: 10px;
+                    .tt-button-modify {
+                      @include flex(row, wrap, center, center);
+                      @include size(30px);
+                      background: unset;
+                      @include transition(all, .2s, ease-out);
+                      &:before {
+                        content: "\f142";
+                        font-family: "Font Awesome 6 Free";
+                        font-weight: 700;
+                        font-size: 16px;
+                        color: #9b9fa9;
+                      }
+                      &:hover {
+                        background-color: #323947;
+                        color: $pure;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tt-area-write {
+          overflow: hidden;
+          padding: 30px;
+          border-radius: 6px;
+          background: $color-sub;
+          .tt_wrap_write {
+            .tt-box-account {
+              @include justify(start);
+              > input {
+                padding: 0 14px;
+                height: 40px;
+                border: none;
+                color: $pure;
+                background: $bgColor;
+              }
+            }
+
+            .tt-box-textarea {
+              .tt-inner-g {
+                overflow-y: auto;
+                border: none;
+                background: $bgColor;
+                &::-webkit-scrollbar { width: 10px; }
+                &::-webkit-scrollbar-button:start:decrement,
+                &::-webkit-scrollbar-button:end:increment {
+                  display: none;
+                }
+                &::-webkit-scrollbar-track { background: $color-sub; }
+                &::-webkit-scrollbar-thumb {
+                  border: 1px solid transparent;
+                  border-radius: 999px;
+                  background: #464a54;
+                  background-clip: padding-box;
+                }
+                .tt-cmt {
+                  color: $pure;
+                }
+                .tt_txt_user {
+                  margin-bottom: 6px;
+                  color: $pure;
+                }
+              }
+            }
+
+            .tt-box-write {
+              @include justify(between);
+              .tt-xe-label {
+                @include size(40px);
+                margin-top: unset;
+                margin-left: unset;
+                min-width: 40px;
+                min-height: 40px;
+                text-align: center;
+                >input[type=checkbox]:checked {
+                  &+.tt-xe-input-helper {
+                    &:before {
+                      content: '\f023';
+                    }
+                  }
+                }
+                .tt-xe-input-helper {
+                  @include flex(row, wrap, center, center);
+                  margin-right: unset;
+                  @include size(40px);
+                  color: #9b9fa9;
+                  background: unset;
+                  @include transition(all, .2s, ease-out);
+                  &:before {
+                    content: '\f3c1';
+                    font-size: 16px;
+                    font-weight: 700;
+                    font-family: "Font Awesome 6 Free";
+                  }
+                  &:hover {
+                    color: $pure;
+                  }
+                }
+              }
+
+              .tt-btn_register {
+                height: 40px;
+                border-radius: 6px;
+                border: none;
+                background-color: #171922;
+                @include transition(all, .2s, ease-out);
+                &:hover {
+                  border: unset;
+                  background-color: $focusColor;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
