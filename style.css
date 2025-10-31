@@ -3972,6 +3972,34 @@ body.toggleMode #footer {
   background-color: #323947;
   color: #fff;
 }
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-list-modify {
+  top: calc(100% + 12px);
+  right: 50%;
+  padding: unset;
+  width: 110px;
+  border-radius: unset;
+  transform: translateX(50%);
+  -webkit-transform: translateX(50%);
+  -moz-transform: translateX(50%);
+  -o-transform: translateX(50%);
+  -ms-transform: translateX(50%);
+  box-shadow: 0px 0px 10px 2px #14151c;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-list-modify > li > a {
+  display: block;
+  padding: 10px 8px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #c7cbd6;
+  background-color: #282c37;
+}
+#tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-list-modify > li > a:focus, #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply .tt-wrap-cmt .tt-box-content .tt-box-modify .tt-list-modify > li > a:hover {
+  background-color: #2f3340;
+  color: #fff;
+}
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write {
   overflow: hidden;
   padding: 30px;
@@ -3979,6 +4007,7 @@ body.toggleMode #footer {
   background: #282c37;
 }
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-account {
+  gap: 8px;
   justify-content: flex-start;
 }
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-account > input {

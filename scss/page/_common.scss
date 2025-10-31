@@ -1390,6 +1390,32 @@ body {
                         color: $pure;
                       }
                     }
+
+                    .tt-list-modify {
+                      top: calc(100% + 12px);
+                      right: 50%;
+                      padding: unset;
+                      width: 110px;
+                      border-radius: unset;
+                      @include translate(x, 50%);
+                      box-shadow: 0px 0px 10px 2px #14151c;
+                      >li>a {
+                        display: block;
+                        padding: 10px 8px;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 14px;
+                        line-height: 1.5;
+                        letter-spacing: normal;
+                        color: #c7cbd6;
+                        background-color: #282c37;
+                        &:focus,
+                        &:hover {
+                          background-color: #2f3340;
+                          color: #fff;
+                        }
+                      }
+                    }
                   }
                 }
               }
@@ -1403,6 +1429,7 @@ body {
           background: $color-sub;
           .tt_wrap_write {
             .tt-box-account {
+              gap: 8px;
               @include justify(start);
               > input {
                 padding: 0 14px;
