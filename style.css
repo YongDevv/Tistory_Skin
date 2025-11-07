@@ -3388,6 +3388,26 @@ body.toggleMode #footer {
   color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+  #tt-body-page.toggleMode #header.scroll .inner {
+    padding: unset;
+  }
+}
+@media screen and (max-width: 768px) {
+  #tt-body-page.toggleMode #header.scroll .headerWrap {
+    padding: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #tt-body-page.toggleMode #header .inner {
+    padding: 0 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #tt-body-page.toggleMode #container #content {
+    padding: 108px 16px 30px 16px;
+  }
+}
 #tt-body-page .post-cover {
   position: relative;
   z-index: 20;
@@ -3475,7 +3495,7 @@ body.toggleMode #footer {
 }
 @media screen and (max-width: 768px) {
   #tt-body-page .listWrap {
-    padding: 0 30px;
+    padding: 0 16px;
   }
 }
 @media screen and (max-width: 1240px) {
@@ -3819,6 +3839,7 @@ body.toggleMode #footer {
   scale: 1.1;
 }
 #tt-body-page .comments {
+  margin-bottom: 30px;
   width: 100%;
 }
 #tt-body-page .comments .tt_box_namecard {
@@ -3847,6 +3868,7 @@ body.toggleMode #footer {
   line-height: 1.5;
   font-size: 15px;
   color: #9c9ca5;
+  word-break: keep-all;
 }
 #tt-body-page .comments .tt_box_namecard .tt_wrap_thumb {
   margin: 0;
@@ -3880,6 +3902,11 @@ body.toggleMode #footer {
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply {
   padding: 30px;
   background: #21242d;
+}
+@media screen and (max-width: 600px) {
+  #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply {
+    padding: 16px;
+  }
 }
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-reply .tt-list-reply .tt-item-reply:first-child {
   border-radius: 6px 6px 0 0;
@@ -4005,6 +4032,11 @@ body.toggleMode #footer {
   padding: 30px;
   border-radius: 6px;
   background: #282c37;
+}
+@media screen and (max-width: 600px) {
+  #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write {
+    padding: 16px;
+  }
 }
 #tt-body-page .comments .tt-comments-wrap .tt-comment-cont .tt-area-write .tt_wrap_write .tt-box-account {
   gap: 8px;
@@ -4428,6 +4460,9 @@ body.toggleMode #footer {
     background-position: 0% 50%;
     transform: rotate(360deg);
   }
+}
+#tt-body-index #content {
+  overflow: hidden;
 }
 #tt-body-index .main-slider {
   display: block;

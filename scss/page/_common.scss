@@ -828,6 +828,20 @@ body {
 }
 
 #tt-body-page {
+  &.toggleMode {
+    #header {
+      &.scroll {
+        .inner { @include padding($narrow, unset); }
+        .headerWrap { @include padding($narrow, 16px); }
+      }
+      .inner {
+        @include padding($narrow, 0 16px);
+      }
+    }
+    #container {
+      #content { @include padding($narrow, 108px 16px 30px 16px) }
+    }
+  }
   .post-cover {
     position: relative;
     z-index: 20;
@@ -911,7 +925,7 @@ body {
     background-color: #171922;
     border-radius: 20px;
     padding: 0 40px;
-    @include padding($narrow, 0 30px);
+    @include padding($narrow, 0 16px);
     max-width: 70%;
     @include max-width(1240px, unset);
   }
@@ -1242,6 +1256,7 @@ body {
   }
 
   .comments {
+    margin-bottom: 30px;
     width: 100%;
     .tt_box_namecard {
       display: flex;
@@ -1268,6 +1283,7 @@ body {
         line-height: 1.5;
         font-size: 15px;
         color: #9c9ca5;
+        word-break: keep-all;
       }
       .tt_wrap_thumb {
         margin: 0;
@@ -1301,6 +1317,7 @@ body {
             border-bottom: unset;
             .tt-item-reply {
               padding: 30px;
+              @include padding(600px, 16px);
               background: #21242d;
               &:first-child {
                 border-radius: 6px 6px 0 0;
@@ -1425,6 +1442,7 @@ body {
         .tt-area-write {
           overflow: hidden;
           padding: 30px;
+          @include padding(600px, 16px);
           border-radius: 6px;
           background: $color-sub;
           .tt_wrap_write {
