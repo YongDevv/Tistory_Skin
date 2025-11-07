@@ -302,17 +302,17 @@
 			breakpoints: {
 				// 320px 이상에서
 				320: {
-				slidesPerView: 1.1,    // 한 번에 1개의 슬라이드
+				slidesPerView: 1,    // 한 번에 1개의 슬라이드
 				spaceBetween: 16,     // 슬라이드 간 간격
 				},
 				// 768px 이상에서
 				768: {
-				slidesPerView: 2.1,    // 한 번에 2개의 슬라이드
+				slidesPerView: 2,    // 한 번에 2개의 슬라이드
 				spaceBetween: 24,     // 슬라이드 간 간격
 				},
 				// 1100px 이상에서
 				1100: {
-				slidesPerView: 3.1,    // 한 번에 3개의 슬라이드
+				slidesPerView: 3,    // 한 번에 3개의 슬라이드
 				spaceBetween: 24,     // 슬라이드 간 간격
 				},
 				// 1460px 이상에서
