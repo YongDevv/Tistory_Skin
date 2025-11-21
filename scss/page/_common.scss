@@ -930,33 +930,6 @@ body {
     @include max-width(1240px, unset);
   }
 
-  #article-view {
-    padding: 20px 0 0;
-    h4 {
-      margin: 34px 0 14px;
-      font-size: 20px;
-    }
-    ul li,
-    ol li {
-      position: relative;
-      padding: 0 0 2px 14px;
-      margin: 0 0 2px 0px;
-      line-height: 1.6;
-      list-style-type: none !important;
-      &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: 12px;
-        left: 0;
-        width: 3px;
-        height: 3px;
-        border-radius: 10px;
-        background: #99999d;
-      }
-    }
-  }
-
   .another_category {
     display: none;
     margin: 20px 0 !important;

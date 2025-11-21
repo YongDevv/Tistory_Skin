@@ -36,3 +36,22 @@
     i { z-index: 100; }
   }
 }
+
+.outLink {
+  @include flex(row, wrap, start, center);
+  >a {
+    @include flex(row, wrap, center, center);
+    padding: 10px 20px;
+    height: 50px;
+    color: $pointText !important;
+    text-decoration: unset !important;
+    border: 1px solid #70708d;
+    border-radius: 25px;
+    cursor: pointer;
+    @include transition(all, .2s, linear);
+    &:hover {
+      color: $pure !important;
+      border: 1px solid $pure;
+    }
+  }
+}

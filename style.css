@@ -139,6 +139,14 @@ a:active {
 
 /* Component */
 /* Components */
+.mT0 {
+  margin-top: 0 !important;
+}
+
+.mB0 {
+  margin-bottom: 0 !important;
+}
+
 /* 포스팅 리스트 커스텀 */
 .postWrap .postHeader {
   display: flex;
@@ -1398,6 +1406,37 @@ hr[data-ke-style=style8] {
   word-break: break-all;
 }
 
+.outLink {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.outLink > a {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  height: 50px;
+  color: #dddddf !important;
+  text-decoration: unset !important;
+  border: 1px solid #70708d;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -ms-transition: all 0.2s linear;
+}
+.outLink > a:hover {
+  color: #fff !important;
+  border: 1px solid #fff;
+}
+
 .quickSwiper {
   display: flex;
   flex-direction: row;
@@ -2432,33 +2471,6 @@ body.toggleMode #footer {
     max-width: unset;
   }
 }
-#tt-body-page #article-view {
-  padding: 20px 0 0;
-}
-#tt-body-page #article-view h4 {
-  margin: 34px 0 14px;
-  font-size: 20px;
-}
-#tt-body-page #article-view ul li,
-#tt-body-page #article-view ol li {
-  position: relative;
-  padding: 0 0 2px 14px;
-  margin: 0 0 2px 0px;
-  line-height: 1.6;
-  list-style-type: none !important;
-}
-#tt-body-page #article-view ul li::before,
-#tt-body-page #article-view ol li::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 0;
-  width: 3px;
-  height: 3px;
-  border-radius: 10px;
-  background: #99999d;
-}
 #tt-body-page .another_category {
   display: none;
   margin: 20px 0 !important;
@@ -3424,7 +3436,7 @@ body.toggleMode #footer {
   justify-content: center;
   align-items: center;
   gap: 16px;
-  padding: 50px 0;
+  padding: 50px 0 40px;
   border-bottom: 1px solid #27292f;
 }
 #tt-body-page .post-cover .inner .category {
@@ -3436,6 +3448,16 @@ body.toggleMode #footer {
   line-height: 1.5;
   color: #fff;
   text-align: center;
+}
+@media screen and (max-width: 768px) {
+  #tt-body-page .post-cover .inner h1 {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #tt-body-page .post-cover .inner h1 {
+    line-height: 1.4;
+  }
 }
 #tt-body-page .post-cover .inner .meta {
   display: flex;
@@ -3506,31 +3528,8 @@ body.toggleMode #footer {
   }
 }
 #tt-body-page #article-view {
-  padding: 20px 0 0;
-}
-#tt-body-page #article-view ul li,
-#tt-body-page #article-view ol li {
-  position: relative;
-  padding: 0 0 2px 14px;
-  margin: 0 0 2px 0px;
-  line-height: 1.6;
-  list-style-type: none !important;
-}
-#tt-body-page #article-view ul li::before,
-#tt-body-page #article-view ol li::before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 12px;
-  left: 0;
-  width: 3px;
-  height: 3px;
-  border-radius: 10px;
-  background: #99999d;
-}
-#tt-body-page #article-view {
-  padding: 20px 0 0;
-  word-wrap: keep-all;
+  padding: 0;
+  word-break: keep-all;
   color: #9c9ca5;
   min-height: 370px;
   font-family: "Pretendard-Regular", sans-serif;
@@ -3544,6 +3543,7 @@ body.toggleMode #footer {
   color: #dddddf;
 }
 #tt-body-page #article-view h2 > b, #tt-body-page #article-view h3 > b, #tt-body-page #article-view h4 > b {
+  font-weight: 700;
   color: #dddddf;
 }
 #tt-body-page #article-view h2 {
@@ -3578,7 +3578,8 @@ body.toggleMode #footer {
   line-height: 1.5;
 }
 #tt-body-page #article-view b {
-  color: #bbbbc0;
+  color: #dddddf;
+  font-weight: 500;
 }
 #tt-body-page #article-view ul li,
 #tt-body-page #article-view ol li {
@@ -3987,15 +3988,31 @@ body.toggleMode #footer {
   display: block;
   margin: 0 auto;
 }
-#tt-body-page #article-view .hBullet {
+#tt-body-page #article-view .bulletL {
   display: block;
   text-indent: -4px;
   font-weight: 700;
+  color: #dddddf;
 }
-#tt-body-page #article-view .subTitle {
+#tt-body-page #article-view .bulletM {
   display: block;
+  margin-bottom: 6px;
   font-size: 18px;
   font-weight: 700;
+  color: #dddddf;
+}
+#tt-body-page #article-view .bulletS li:before {
+  top: 10px;
+  width: 4px;
+  height: 4px;
+  background: #dddddf;
+}
+#tt-body-page #article-view .bulletS li .title {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #dddddf;
 }
 #tt-body-page .another_category {
   display: none;
